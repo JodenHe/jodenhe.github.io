@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-08T14:54:52.567Z</updated>
+  <updated>2019-02-11T11:45:06.715Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,9 +17,57 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JSTACK 分析线程</title>
+    <link href="http://yoursite.com/2019/02/11/Java/jstack-cpu/"/>
+    <id>http://yoursite.com/2019/02/11/Java/jstack-cpu/</id>
+    <published>2019-02-11T11:23:18.746Z</published>
+    <updated>2019-02-11T11:45:06.715Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="查找-tomcat-线程"><a href="#查找-tomcat-线程" class="headerlink" title="查找 tomcat 线程"></a>查找 tomcat 线程</h3><p>可以通过两种方式找：</p><ul><li><p>jps</p><p>一般Bootstrap都是tomcat的</p><p><img src="/images/1.png" alt="JPS"></p></li></ul><ul><li><p>ps -ef |grep tomcat</p><p><img src="/images/2.png" alt="PS"></p></li></ul><h3 id="jstack-dump-出线程"><a href="#jstack-dump-出线程" class="headerlink" title="jstack dump 出线程"></a>jstack dump 出线程</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jstack 23524 &gt; jstack.txt</span><br></pre></td></tr></table></figure><h3 id="查看-tomcat-内部线程"><a href="#查看-tomcat-内部线程" class="headerlink" title="查看 tomcat 内部线程"></a>查看 tomcat 内部线程</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top -H -p 23524</span><br></pre></td></tr></table></figure><blockquote><p>（shift+p 按 cpu 排序，shift+m 按内存排序） </p></blockquote><p><img src="/images/3.png" alt="tomcat-stack"></p><h3 id="将PID换算成16进制，然后在jstack-txt查找nid-0x换算后的数"><a href="#将PID换算成16进制，然后在jstack-txt查找nid-0x换算后的数" class="headerlink" title="将PID换算成16进制，然后在jstack.txt查找nid=0x换算后的数"></a>将PID换算成16进制，然后在jstack.txt查找nid=0x换算后的数</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat jstack.txt | grep 'nid=0x5be9' -B 5 -A 40</span><br></pre></td></tr></table></figure><p><img src="/images/4.png" alt="4.png"></p><blockquote><p>可以看出是JNI的问题，一般就是tomcat jni没配置连接池参数导致的了</p></blockquote><h3 id="加上连接池参数"><a href="#加上连接池参数" class="headerlink" title="加上连接池参数"></a>加上连接池参数</h3><p><img src="/images/5.png" alt="5.png"></p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>jstack分析cpu负载过高原因：</p><p><a href="https://blog.csdn.net/u010248330/article/details/80080605" target="_blank" rel="noopener">https://blog.csdn.net/u010248330/article/details/80080605</a></p><p>jstack: Java占用高CPU分析之- GC Task Thread:</p><p><a href="https://blog.csdn.net/chenxiusheng/article/details/74007040" target="_blank" rel="noopener">https://blog.csdn.net/chenxiusheng/article/details/74007040</a></p>]]></content>
+    
+    <summary type="html">
+    
+      CPU 占用100%，如何根据 java 线程情况定位到问题所在
+    
+    </summary>
+    
+      <category term="Java" scheme="http://yoursite.com/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+      <category term="Jstack" scheme="http://yoursite.com/tags/Jstack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JSTACK 分析线程</title>
+    <link href="http://yoursite.com/2019/02/11/java/jstack-cpu/"/>
+    <id>http://yoursite.com/2019/02/11/java/jstack-cpu/</id>
+    <published>2019-02-11T11:23:18.746Z</published>
+    <updated>2019-02-11T11:45:06.715Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="查找-tomcat-线程"><a href="#查找-tomcat-线程" class="headerlink" title="查找 tomcat 线程"></a>查找 tomcat 线程</h3><p>可以通过两种方式找：</p><ul><li><p>jps</p><p>一般Bootstrap都是tomcat的</p><p><img src="/images/1.png" alt="JPS"></p></li></ul><ul><li><p>ps -ef |grep tomcat</p><p><img src="/images/2.png" alt="PS"></p></li></ul><h3 id="jstack-dump-出线程"><a href="#jstack-dump-出线程" class="headerlink" title="jstack dump 出线程"></a>jstack dump 出线程</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jstack 23524 &gt; jstack.txt</span><br></pre></td></tr></table></figure><h3 id="查看-tomcat-内部线程"><a href="#查看-tomcat-内部线程" class="headerlink" title="查看 tomcat 内部线程"></a>查看 tomcat 内部线程</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top -H -p 23524</span><br></pre></td></tr></table></figure><blockquote><p>（shift+p 按 cpu 排序，shift+m 按内存排序） </p></blockquote><p><img src="/images/3.png" alt="tomcat-stack"></p><h3 id="将PID换算成16进制，然后在jstack-txt查找nid-0x换算后的数"><a href="#将PID换算成16进制，然后在jstack-txt查找nid-0x换算后的数" class="headerlink" title="将PID换算成16进制，然后在jstack.txt查找nid=0x换算后的数"></a>将PID换算成16进制，然后在jstack.txt查找nid=0x换算后的数</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat jstack.txt | grep 'nid=0x5be9' -B 5 -A 40</span><br></pre></td></tr></table></figure><p><img src="/images/4.png" alt="4.png"></p><blockquote><p>可以看出是JNI的问题，一般就是tomcat jni没配置连接池参数导致的了</p></blockquote><h3 id="加上连接池参数"><a href="#加上连接池参数" class="headerlink" title="加上连接池参数"></a>加上连接池参数</h3><p><img src="/images/5.png" alt="5.png"></p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>jstack分析cpu负载过高原因：</p><p><a href="https://blog.csdn.net/u010248330/article/details/80080605" target="_blank" rel="noopener">https://blog.csdn.net/u010248330/article/details/80080605</a></p><p>jstack: Java占用高CPU分析之- GC Task Thread:</p><p><a href="https://blog.csdn.net/chenxiusheng/article/details/74007040" target="_blank" rel="noopener">https://blog.csdn.net/chenxiusheng/article/details/74007040</a></p>]]></content>
+    
+    <summary type="html">
+    
+      CPU 占用100%，如何根据 java 线程情况定位到问题所在
+    
+    </summary>
+    
+      <category term="Java" scheme="http://yoursite.com/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+      <category term="Jstack" scheme="http://yoursite.com/tags/Jstack/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MyBatis 传入参数为 List、Array、Map</title>
-    <link href="http://yoursite.com/2019/02/08/Java/MyBatis/MyBatis%20%E4%BC%A0%E5%85%A5%E5%8F%82%E6%95%B0%E4%B8%BA%20List%E3%80%81Array%E3%80%81Map/"/>
-    <id>http://yoursite.com/2019/02/08/Java/MyBatis/MyBatis 传入参数为 List、Array、Map/</id>
+    <link href="http://yoursite.com/2019/02/08/java/mybatis/mybatis-collection-params/"/>
+    <id>http://yoursite.com/2019/02/08/java/mybatis/mybatis-collection-params/</id>
     <published>2019-02-08T13:17:09.265Z</published>
     <updated>2019-02-08T14:54:52.567Z</updated>
     
@@ -44,8 +92,8 @@
   
   <entry>
     <title>航天信息金税盘接口 js 调用</title>
-    <link href="http://yoursite.com/2018/12/02/%E9%9A%8F%E7%AC%94/%E8%88%AA%E5%A4%A9%E4%BF%A1%E6%81%AF%E9%87%91%E7%A8%8E%E7%9B%98%E6%8E%A5%E5%8F%A3js%E8%B0%83%E7%94%A8/"/>
-    <id>http://yoursite.com/2018/12/02/随笔/航天信息金税盘接口js调用/</id>
+    <link href="http://yoursite.com/2018/12/02/essay/gold-tax-js/"/>
+    <id>http://yoursite.com/2018/12/02/essay/gold-tax-js/</id>
     <published>2018-12-02T14:28:42.420Z</published>
     <updated>2019-02-08T13:13:45.251Z</updated>
     
