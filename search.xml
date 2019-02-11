@@ -2,18 +2,6 @@
 <search>
   <entry>
     <title><![CDATA[JSTACK 分析线程]]></title>
-    <url>%2F2019%2F02%2F11%2FJava%2Fjstack-cpu%2F</url>
-    <content type="text"><![CDATA[查找 tomcat 线程可以通过两种方式找： jps 一般Bootstrap都是tomcat的 ps -ef |grep tomcat jstack dump 出线程1jstack 23524 &gt; jstack.txt 查看 tomcat 内部线程1top -H -p 23524 （shift+p 按 cpu 排序，shift+m 按内存排序） 将PID换算成16进制，然后在jstack.txt查找nid=0x换算后的数1cat jstack.txt | grep 'nid=0x5be9' -B 5 -A 40 可以看出是JNI的问题，一般就是tomcat jni没配置连接池参数导致的了 加上连接池参数 参考jstack分析cpu负载过高原因： https://blog.csdn.net/u010248330/article/details/80080605 jstack: Java占用高CPU分析之- GC Task Thread: https://blog.csdn.net/chenxiusheng/article/details/74007040]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Jstack</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[JSTACK 分析线程]]></title>
     <url>%2F2019%2F02%2F11%2Fjava%2Fjstack-cpu%2F</url>
     <content type="text"><![CDATA[查找 tomcat 线程可以通过两种方式找： jps 一般Bootstrap都是tomcat的 ps -ef |grep tomcat jstack dump 出线程1jstack 23524 &gt; jstack.txt 查看 tomcat 内部线程1top -H -p 23524 （shift+p 按 cpu 排序，shift+m 按内存排序） 将PID换算成16进制，然后在jstack.txt查找nid=0x换算后的数1cat jstack.txt | grep 'nid=0x5be9' -B 5 -A 40 可以看出是JNI的问题，一般就是tomcat jni没配置连接池参数导致的了 加上连接池参数 参考jstack分析cpu负载过高原因： https://blog.csdn.net/u010248330/article/details/80080605 jstack: Java占用高CPU分析之- GC Task Thread: https://blog.csdn.net/chenxiusheng/article/details/74007040]]></content>
       <categories>
