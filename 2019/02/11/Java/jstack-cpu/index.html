@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://yoursite.com/images/3.png">
 <meta property="og:image" content="http://yoursite.com/images/4.png">
 <meta property="og:image" content="http://yoursite.com/images/5.png">
-<meta property="og:updated_time" content="2019-02-11T11:45:06.715Z">
+<meta property="og:updated_time" content="2019-02-16T06:54:52.536Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSTACK 分析线程">
 <meta name="twitter:description" content="CPU 占用100%，如何根据 java 线程情况定位到问题所在">
@@ -416,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  163
+                  177
                 </span>
               
 
@@ -478,7 +478,7 @@
 <h3 id="将PID换算成16进制，然后在jstack-txt查找nid-0x换算后的数"><a href="#将PID换算成16进制，然后在jstack-txt查找nid-0x换算后的数" class="headerlink" title="将PID换算成16进制，然后在jstack.txt查找nid=0x换算后的数"></a>将PID换算成16进制，然后在jstack.txt查找nid=0x换算后的数</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat jstack.txt | grep 'nid=0x5be9' -B 5 -A 40</span><br></pre></td></tr></table></figure>
 <p><img src="/images/4.png" alt="4.png"></p>
 <blockquote>
-<p>可以看出是JNI的问题，一般就是tomcat jni没配置连接池参数导致的了</p>
+<p>发现频繁的GC，推测是不是数据库在频繁的开关导致，因此检查 tomcat jndi是否没配置数据库连接池参数</p>
 </blockquote>
 <h3 id="加上连接池参数"><a href="#加上连接池参数" class="headerlink" title="加上连接池参数"></a>加上连接池参数</h3><p><img src="/images/5.png" alt="5.png"></p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>jstack分析cpu负载过高原因：</p>
@@ -727,7 +727,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">5.3k</span>
+    <span title="Site words total count">5.4k</span>
   
 </div>
 
