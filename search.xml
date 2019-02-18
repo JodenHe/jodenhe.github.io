@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Gitlab 更新 fork 的代码]]></title>
+    <url>%2F2019%2F02%2F18%2Fgit%2Fgitlab-update-fork%2F</url>
+    <content type="text"><![CDATA[操作步骤 先确定是否建立了主仓库的远程数据源: 1git remote -v 我们发现只有我们自己的两个源(fetch 和 push)，那这个时候就需要添加主仓库的源。 添加主仓库的源 1git remote add upstream URL upstream : 随便起的名字 URL： fork的仓库地址 如果想删除remote的upstream标签，则可以运行： git remote rm upstream 更新代码 123git fetch upstreamgit checkout mastergit merge upstream/master 参考https://blog.csdn.net/lhh1113/article/details/71038154]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JSTACK 分析线程]]></title>
     <url>%2F2019%2F02%2F11%2FJava%2Fjstack-cpu%2F</url>
     <content type="text"><![CDATA[查找 tomcat 线程可以通过两种方式找： jps 一般Bootstrap都是tomcat的 ps -ef |grep tomcat jstack dump 出线程1jstack 23524 &gt; jstack.txt 查看 tomcat 内部线程1top -H -p 23524 （shift+p 按 cpu 排序，shift+m 按内存排序） 将PID换算成16进制，然后在jstack.txt查找nid=0x换算后的数1cat jstack.txt | grep 'nid=0x5be9' -B 5 -A 40 发现频繁的GC，推测是不是数据库在频繁的开关导致，因此检查 tomcat jndi是否没配置数据库连接池参数 加上连接池参数 参考jstack分析cpu负载过高原因： https://blog.csdn.net/u010248330/article/details/80080605 jstack: Java占用高CPU分析之- GC Task Thread: https://blog.csdn.net/chenxiusheng/article/details/74007040]]></content>

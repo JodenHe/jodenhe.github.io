@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-16T06:54:52.536Z</updated>
+  <updated>2019-02-18T09:02:23.724Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Gitlab 更新 fork 的代码</title>
+    <link href="http://yoursite.com/2019/02/18/git/gitlab-update-fork/"/>
+    <id>http://yoursite.com/2019/02/18/git/gitlab-update-fork/</id>
+    <published>2019-02-18T08:44:55.363Z</published>
+    <updated>2019-02-18T09:02:23.724Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><ul><li>先确定是否建立了主仓库的远程数据源:</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure><p><img src="/images/6.png" alt="remote_rep"></p><p>我们发现只有我们自己的两个源(fetch 和 push)，那这个时候就需要添加主仓库的源。</p><ul><li>添加主仓库的源</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add upstream URL</span><br></pre></td></tr></table></figure><blockquote><p>upstream : 随便起的名字</p><p>URL： fork的仓库地址</p><p>如果想删除remote的upstream标签，则可以运行： git remote rm upstream</p></blockquote><p><img src="/images/7.png" alt="remote_rep"></p><ul><li><p>更新代码</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch upstream</span><br><span class="line">git checkout master</span><br><span class="line">git merge upstream/master</span><br></pre></td></tr></table></figure></li></ul><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://blog.csdn.net/lhh1113/article/details/71038154" target="_blank" rel="noopener">https://blog.csdn.net/lhh1113/article/details/71038154</a></p>]]></content>
+    
+    <summary type="html">
+    
+      有时候我们在 gitlab fork 了某个项目的代码，然而我们需要怎么更新我们 fork 的代码呢？
+    
+    </summary>
+    
+      <category term="git" scheme="http://yoursite.com/categories/git/"/>
+    
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>JSTACK 分析线程</title>
