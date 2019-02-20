@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[oracle cloud 如何获取图片 url]]></title>
+    <url>%2F2019%2F02%2F20%2Foracle-cloud%2Fhow-to-get-image-url%2F</url>
+    <content type="text"><![CDATA[以获取物料图片 url 作为例子 123456789101112(SELECT (decode(datatype_code, 'FILE', (:p_host || '/cs/idcplg?IdcService=GET_FILE&amp;dID=') || dm_version_number, 'WEB_PAGE', url)) AS image FROM fnd_attached_documents d, fnd_documents_vl dv WHERE d.document_id = d.document_id AND d.entity_name = 'ITEM_ENTITY' AND d.pk1_value = to_char(esi.organization_id) AND d.pk2_value = to_char(esi.inventory_item_id) AND rownum = 1) AS item_photo 其中 p_host 为 cloud 的主域名 其他类型的图片 url 可以通过变换 d.entity_name = &#39;ITEM_ENTITY&#39; 进行查找]]></content>
+      <categories>
+        <category>Oracle Cloud</category>
+      </categories>
+      <tags>
+        <tag>Oracle Cloud</tag>
+        <tag>attachment</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[如何获取 oracle cloud 的 PO 的 shipping method]]></title>
+    <url>%2F2019%2F02%2F20%2Foracle-cloud%2Fpo%2Fhow-to-get-shipping-method%2F</url>
+    <content type="text"><![CDATA[版本信息example12345678910111213SELECT po_bip_helper.get_shipping_method(carrierpartyname.party_name, modeoftransportlookuppeo.meaning, servicelevellookuppeo.meaning) AS shippingmethod FROM wsh_carriers carrier, hz_parties carrierpartyname, fnd_lookups modeoftransportlookuppeo, fnd_lookups servicelevellookuppeo, po_headers_all header WHERE (header.mode_of_transport = modeoftransportlookuppeo.lookup_code(+) AND modeoftransportlookuppeo.lookup_type(+) = 'WSH_MODE_OF_TRANSPORT') AND (header.service_level = servicelevellookuppeo.lookup_code(+) AND servicelevellookuppeo.lookup_type(+) = 'WSH_SERVICE_LEVELS') AND header.carrier_id = carrier.carrier_id(+) AND carrier.carrier_id = carrierpartyname.party_id(+) AND header.segment1 = '20000028']]></content>
+      <categories>
+        <category>Oracle Cloud</category>
+        <category>PO</category>
+      </categories>
+      <tags>
+        <tag>Oracle Cloud</tag>
+        <tag>PO</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[如何获取 oracle cloud 的 Match Approval Level]]></title>
     <url>%2F2019%2F02%2F20%2Foracle-cloud%2Fhow-to-get-match-approval-level%2F</url>
     <content type="text"><![CDATA[版本信息Oracle Cloud Application Revision 13.18.10 (11.13.18.10.0) Title Description Oracle Application Development Framework JDEVADF_11.1.1.9.2ADF-REL131810-PROD-BP_GENERIC_181116.1437.7206 Oracle Middleware Extensions for Applications ATGPF_PT.REL13.18.10_GENERIC_181113.1603.REL13BP16.7 Database Compatibility TRUE (REL13BP16.7) 提示 When Receipt Required Flag is N, then Match Approval level is 2 way. When Receipt Required Flag is Y and Inspection Required Flag is N, then Match Approval Level is 3 way. When Receipt Required Flag is Y and Inspection Required Flag is Y, then Match Approval Level is 4 way. 2-way 不需要检测收货 receipt_required_flag 为 N 3-way 需要在 match invoice 的时候验收货 所以 receipt_required_flag 为Y , inspection_required_flag 为 N 4-way 还要检测验货 所以 两个都为 Y SQL123456789decode(poz_supplier_sites_v.receipt_required_flag, 'Y', decode(poz_supplier_sites_v.inspection_required_flag, 'Y', '4-Way', 'N', '3-Way'), 'N', '2-Way') AS matching_level 参考http://j178.mtgbb.com/?p=713]]></content>

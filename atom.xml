@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-20T13:09:42.230Z</updated>
+  <updated>2019-02-20T13:28:58.459Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>oracle cloud 如何获取图片 url</title>
+    <link href="http://yoursite.com/2019/02/20/oracle-cloud/how-to-get-image-url/"/>
+    <id>http://yoursite.com/2019/02/20/oracle-cloud/how-to-get-image-url/</id>
+    <published>2019-02-20T13:22:56.636Z</published>
+    <updated>2019-02-20T13:28:58.459Z</updated>
+    
+    <content type="html"><![CDATA[<p>以获取物料图片 <code>url</code> 作为例子</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">SELECT</span> (<span class="keyword">decode</span>(datatype_code,</span><br><span class="line">                <span class="string">'FILE'</span>,</span><br><span class="line">                (:p_host || <span class="string">'/cs/idcplg?IdcService=GET_FILE&amp;dID='</span>) || dm_version_number,</span><br><span class="line">                <span class="string">'WEB_PAGE'</span>,</span><br><span class="line">                <span class="keyword">url</span>)) <span class="keyword">AS</span> image</span><br><span class="line"> <span class="keyword">FROM</span> fnd_attached_documents d,</span><br><span class="line"> fnd_documents_vl       dv</span><br><span class="line"> <span class="keyword">WHERE</span> d.document_id = d.document_id</span><br><span class="line"> <span class="keyword">AND</span> d.entity_name = <span class="string">'ITEM_ENTITY'</span></span><br><span class="line"> <span class="keyword">AND</span> d.pk1_value = to_char(esi.organization_id)</span><br><span class="line"> <span class="keyword">AND</span> d.pk2_value = to_char(esi.inventory_item_id)</span><br><span class="line"> <span class="keyword">AND</span> <span class="keyword">rownum</span> = <span class="number">1</span>) <span class="keyword">AS</span> item_photo</span><br></pre></td></tr></table></figure><blockquote><p> 其中 <code>p_host</code> 为 <code>cloud</code> 的主域名</p></blockquote><p>其他类型的图片 <code>url</code> 可以通过变换 <code>d.entity_name = &#39;ITEM_ENTITY&#39;</code> 进行查找</p>]]></content>
+    
+    <summary type="html">
+    
+      oracle cloud 中通过附件来管理图片信息，其中图片信息可以是外链 url, 也可以是上传图片信息，cloud 生成链接信息。
+    
+    </summary>
+    
+      <category term="Oracle Cloud" scheme="http://yoursite.com/categories/Oracle-Cloud/"/>
+    
+    
+      <category term="Oracle Cloud" scheme="http://yoursite.com/tags/Oracle-Cloud/"/>
+    
+      <category term="attachment" scheme="http://yoursite.com/tags/attachment/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何获取 oracle cloud 的 PO 的 shipping method</title>
+    <link href="http://yoursite.com/2019/02/20/oracle-cloud/po/how-to-get-shipping-method/"/>
+    <id>http://yoursite.com/2019/02/20/oracle-cloud/po/how-to-get-shipping-method/</id>
+    <published>2019-02-20T13:12:38.137Z</published>
+    <updated>2019-02-20T13:20:20.028Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h3><h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> po_bip_helper.get_shipping_method(carrierpartyname.party_name,</span><br><span class="line">                                         modeoftransportlookuppeo.meaning,</span><br><span class="line">                                         servicelevellookuppeo.meaning) <span class="keyword">AS</span> shippingmethod</span><br><span class="line">  <span class="keyword">FROM</span> wsh_carriers   carrier,</span><br><span class="line">       hz_parties     carrierpartyname,</span><br><span class="line">       fnd_lookups    modeoftransportlookuppeo,</span><br><span class="line">       fnd_lookups    servicelevellookuppeo,</span><br><span class="line">       po_headers_all header</span><br><span class="line"> <span class="keyword">WHERE</span> (header.mode_of_transport = modeoftransportlookuppeo.lookup_code(+) <span class="keyword">AND</span> modeoftransportlookuppeo.lookup_type(+) = <span class="string">'WSH_MODE_OF_TRANSPORT'</span>)</span><br><span class="line">   <span class="keyword">AND</span> (header.service_level = servicelevellookuppeo.lookup_code(+) <span class="keyword">AND</span> servicelevellookuppeo.lookup_type(+) = <span class="string">'WSH_SERVICE_LEVELS'</span>)</span><br><span class="line">   <span class="keyword">AND</span> header.carrier_id = carrier.carrier_id(+)</span><br><span class="line">   <span class="keyword">AND</span> carrier.carrier_id = carrierpartyname.party_id(+)</span><br><span class="line">   <span class="keyword">AND</span> header.segment1 = <span class="string">'20000028'</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      Oracle Cloud PO 界面上显示的 shipping method 在后台是通过几个字段来存储的，要获取该字段得使用函数获取。
+    
+    </summary>
+    
+      <category term="Oracle Cloud" scheme="http://yoursite.com/categories/Oracle-Cloud/"/>
+    
+      <category term="PO" scheme="http://yoursite.com/categories/Oracle-Cloud/PO/"/>
+    
+    
+      <category term="Oracle Cloud" scheme="http://yoursite.com/tags/Oracle-Cloud/"/>
+    
+      <category term="PO" scheme="http://yoursite.com/tags/PO/"/>
+    
+  </entry>
   
   <entry>
     <title>如何获取 oracle cloud 的 Match Approval Level</title>
