@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[如何获取 oracle cloud 的 Match Approval Level]]></title>
+    <url>%2F2019%2F02%2F20%2Foracle-cloud%2Fhow-to-get-match-approval-level%2F</url>
+    <content type="text"><![CDATA[提示 When Receipt Required Flag is N, then Match Approval level is 2 way. When Receipt Required Flag is Y and Inspection Required Flag is N, then Match Approval Level is 3 way. When Receipt Required Flag is Y and Inspection Required Flag is Y, then Match Approval Level is 4 way. 2-way 不需要检测收货 receipt_required_flag 为 N 3-way 需要在 match invoice 的时候验收货 所以 receipt_required_flag 为Y , inspection_required_flag 为 N 4-way 还要检测验货 所以 两个都为 Y SQL123456789decode(poz_supplier_sites_v.receipt_required_flag, 'Y', decode(poz_supplier_sites_v.inspection_required_flag, 'Y', '4-Way', 'N', '3-Way'), 'N', '2-Way') AS matching_level 参考http://j178.mtgbb.com/?p=713]]></content>
+      <categories>
+        <category>Oracle Cloud</category>
+      </categories>
+      <tags>
+        <tag>Oracle Cloud</tag>
+        <tag>Match Approval Level</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Gitlab 更新 fork 的代码]]></title>
     <url>%2F2019%2F02%2F18%2Fgit%2Fgitlab-update-fork%2F</url>
     <content type="text"><![CDATA[操作步骤 先确定是否建立了主仓库的远程数据源: 1git remote -v 我们发现只有我们自己的两个源(fetch 和 push)，那这个时候就需要添加主仓库的源。 添加主仓库的源 1git remote add upstream URL upstream : 随便起的名字 URL： fork的仓库地址 如果想删除remote的upstream标签，则可以运行： git remote rm upstream 更新代码 123git fetch upstreamgit checkout mastergit merge upstream/master 参考https://blog.csdn.net/lhh1113/article/details/71038154]]></content>
