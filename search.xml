@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[转载] 获取被代理类的真实类]]></title>
+    <url>%2F2019%2F03%2F07%2FJava%2Fspring%2Ftarget-class%2F</url>
+    <content type="text"><![CDATA[版权说明，文章转载自 Spring 笔记-获取被代理的真实类 对一个 Autowired 进来的类调用 getClass，发现得到的类是: com.xxx.search.provider.service.SearchServiceImpl$$EnhancerBySpringCGLIB$$129db519，一看就不是正经类。从名字中可以看出，这个是被代理后的类，可能因为这个类被AOP了吧。但是我在反射操作是需要原始的类的信息，要如何得到呢？ org.springframework.aop 下有一个很重要的接口: TargetClassAware, 这个接口表示目前这个类是被代理的。所以我们可以通过判断一个实例是否是 TargetClassAware 的实例来判断他是否是一个代理类。而且 TargetClassAware 接口提供了 getTargetClass 方法来获取真实类。可以这么用： 123if (aInstance instanceof TargetClassAware) &#123; aInstance.getTargetClass();&#125; 不过更推荐的做法是使用 org.springframework.aop.support.AopUtils 提供的 getTargetClass 方法来获取真实类。可以看看其源码： 12345678910111213public static Class&lt;?&gt; getTargetClass(Object candidate) &#123; Assert.notNull(candidate, "Candidate object must not be null"); Class result = null; if(candidate instanceof TargetClassAware) &#123; result = ((TargetClassAware)candidate).getTargetClass(); &#125; if(result == null) &#123; result = isCglibProxy(candidate)?candidate.getClass().getSuperclass():candidate.getClass(); &#125; return result;&#125; 代码首先判断当前类是否是 TargetClassAware 的实现，如果是，调用 getTargetClass，方法还判断当前类是否是 CglibProxy，如果是基于 cglib 的代理类，因为是基于继承来实现代理，所以获取父类就是真实类了。 参考资料 java - Obtain real Class object for Spring bean - Stack Overflow AopUtils)]]></content>
+      <categories>
+        <category>Java</category>
+        <category>Spring</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[oracle cloud 如何获取图片 url]]></title>
     <url>%2F2019%2F02%2F20%2Foracle-cloud%2Fhow-to-get-image-url%2F</url>
     <content type="text"><![CDATA[以获取物料图片 url 作为例子 123456789101112(SELECT (decode(datatype_code, 'FILE', (:p_host || '/cs/idcplg?IdcService=GET_FILE&amp;dID=') || dm_version_number, 'WEB_PAGE', url)) AS image FROM fnd_attached_documents d, fnd_documents_vl dv WHERE d.document_id = d.document_id AND d.entity_name = 'ITEM_ENTITY' AND d.pk1_value = to_char(esi.organization_id) AND d.pk2_value = to_char(esi.inventory_item_id) AND rownum = 1) AS item_photo 其中 p_host 为 cloud 的主域名 其他类型的图片 url 可以通过变换 d.entity_name = &#39;ITEM_ENTITY&#39; 进行查找]]></content>
