@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-07T12:56:00.894Z</updated>
+  <updated>2019-03-09T10:23:55.714Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ADDS 活动目录安装详解</title>
+    <link href="http://yoursite.com/2019/03/09/sso/adfs/adds-install/"/>
+    <id>http://yoursite.com/2019/03/09/sso/adfs/adds-install/</id>
+    <published>2019-03-09T10:15:27.935Z</published>
+    <updated>2019-03-09T10:23:55.714Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="安装前准备"><a href="#安装前准备" class="headerlink" title="安装前准备"></a>安装前准备</h3><p>确保域控制器 (DC) 的计算机名符合企业命名规范，因为 AD 安装完成后再更改 DC 计算机相对复杂而且存在风险。DC 需要使用固定的静态IP地址，并且把DNS设置指向本机IP。</p><p>这台电脑 (右键) –&gt; 属性，更改设置：</p><p><img src="/images/sso/adfs/adds-install/cp-name.png" alt="computer name"></p><p>网络 (右键) –&gt; 属性 –&gt; 以太网 –&gt; 属性 –&gt; Internet 协议版本 4（TCP/IPV4） –&gt; 属性</p><p><img src="/images/sso/adfs/adds-install/network.png" alt="network"></p><h3 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h3><ul><li>打开服务器管理器，点击 “添加角色和功能”</li></ul><p><img src="/images/sso/adfs/adds-install/step1.png" alt="step 1"></p><ul><li>保持默认，并连续点击三次“下一步”。</li></ul><p><img src="/images/sso/adfs/adds-install/step2.png" alt="step 2"></p><ul><li>勾选 “ActiveDirectory域服务”，然后选择添加所需的功能，最后点“下一步”继续。</li></ul><p><img src="/images/sso/adfs/adds-install/step3.png" alt="step 3"></p><ul><li>功能选择页面保持默认，连续点击2次“下一步”。</li></ul><p><img src="/images/sso/adfs/adds-install/step4.png" alt="step 4"></p><ul><li>勾选自动重启服务器，点击“安装”。</li></ul><p><img src="/images/sso/adfs/adds-install/step5.1.png" alt="step 5.1"></p><p><img src="/images/sso/adfs/adds-install/step5.2.png" alt="step 5.2"></p><ul><li>完成ADDS安装后，如图点击提示图标后，选择“将此服务器提升为域控制器”。</li></ul><p><img src="/images/sso/adfs/adds-install/step6.png" alt="step 6"></p><ul><li>由于这是第一台域控制器(DC)，也叫林根域。选择“添加新林”，然后输入根域名。</li></ul><p><img src="/images/sso/adfs/adds-install/step7.png" alt="step 7"></p><ul><li>选择林和域功能级别，勾选DNS(AD需要高度集成DNS)，并输入目录还原模式密码。</li></ul><p><img src="/images/sso/adfs/adds-install/step8.png" alt="step 8"></p><ul><li>由于现在还没有DNS服务器，所以会提示无法创建委派。直接“下一步”。</li></ul><p><img src="/images/sso/adfs/adds-install/step9.png" alt="step 9"></p><ul><li>NetBIOS名以及ADDS数据库、日志、Sysvol保存位置，如果企业没有特殊要求，一般保持默认即可。</li></ul><p><img src="/images/sso/adfs/adds-install/step10.1.png" alt="step 10.1"></p><p><img src="/images/sso/adfs/adds-install/step10.2.png" alt="step 10.2"></p><ul><li>检查配置无误后点击“下一步”，然后点击“安装”，等待安装完成后重启即可。</li></ul><p><img src="/images/sso/adfs/adds-install/step11.1.png" alt="step 11.1"></p><p><img src="/images/sso/adfs/adds-install/step11.2.png" alt="step 11.2"></p><p>至此完成 <code>ActiveDirectory</code> 的全部安装。已经可以对外提供服务了。</p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://blog.51cto.com/labixiaoniu/1253454" target="_blank" rel="noopener">Active Directory管理之一:活动目录安装详解</a></p>]]></content>
+    
+    <summary type="html">
+    
+      本文演示如何使用 windows server 2012 R2  安装 ADDS 服务
+    
+    </summary>
+    
+      <category term="SSO" scheme="http://yoursite.com/categories/SSO/"/>
+    
+      <category term="ADFS" scheme="http://yoursite.com/categories/SSO/ADFS/"/>
+    
+    
+      <category term="SSO" scheme="http://yoursite.com/tags/SSO/"/>
+    
+      <category term="ADFS" scheme="http://yoursite.com/tags/ADFS/"/>
+    
+      <category term="ADDS" scheme="http://yoursite.com/tags/ADDS/"/>
+    
+  </entry>
   
   <entry>
     <title>[转载] 获取被代理类的真实类</title>
