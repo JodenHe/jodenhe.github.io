@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ADFS 安装及配置]]></title>
+    <url>%2F2019%2F03%2F11%2Fsso%2Fadfs%2Fadfs-install%2F</url>
+    <content type="text"><![CDATA[安装前准备在安装 ADFS 之前，我们需要准备号 DC，参考 ADDS 活动目录安装详解 安装配置证书服务在 DC 上安装 CA 打开服务器管理器，点击 “添加角色和功能” 保持默认，并连续点击三次“下一步” 勾选 “Active Directory 证书服务”，然后选择添加所需的功能，最后点“下一步”继续 功能选择页面保持默认，连续点击2次“下一步” 勾选 CA 相关服务, 一直点下一步，最后点击安装 安装完成 配置证书服务 CA 安装完成后，如图点击提示图标后，选择“配置目标服务器上的 Active Directory 证书服务” 根据向导进行配置 勾选所需要配置的服务 选择企业根 创建新的私钥 指定 CA 名称 指定有效期 指定数据库位置 确认配置信息 配置完成 验证 CA 以上环境准备好后就可以配置 ADFS 服务器了。在配置前我们需要给计算机或者指定的用户或者计算机授权证书颁发。 安装ADFS服务在安装 ADFS 之前，我们需要创建和配置证书 创建证书账户准备好后，然后申请证书，其实有很常见的两种方法，第一种就是通过iis进行证书申请，第二种通过 mmc 控制台进行申请，这里使用IIS的申请方法。 打开IIS管理器，选择【服务器证书】创建证书申请 保存到桌面上：cert.txt 配置证书 服务器浏览器，输入 http://127.0.0.1/certsrv/ 如下： 选择申请证书——&gt;高级证书申请 选择： 使用 base64 编码的 CMC 或 PKCS #10 文件提交 一个证书申请，或使用 base64 编码的 PKCS #7 文件续订证书申请 打开cert.txt ，粘贴进去，证书模板选择 web服务器，提交 下载证书，保存到本地： 回到iis管理器，选择完成证书申请 将 default web site 的 https 绑定证书改为刚才完成的证书 选择 default web site , 右键 编辑绑定，选择 https（没有则添加） ， 点击编辑，选择 ssl 证书:（ 这个证书在安装adfs时使用该证书） 开始安装 打开服务器管理器，点击 “添加角色和功能” 保持默认，并连续点击三次“下一步” 勾选 “Active Directory Federation Services” 安装服务角色 功能选择页面保持默认，连续点击2次“下一步” 安装 安装完成 ADFS 安装完成后，如图点击提示图标后，选择“在此服务器上配置联合身份验证服务” 功能选择页面保持默认，连续点击2次“下一步” 选择证书(不是前面创建的证书)，填写显示的名称 选择 adfs 服务帐号 指定配置数据库 下一步 配置 配置完成 至此 ADFS 安装配置完成 参考Windows Server 2016 安装及配置 ADFS 4.0 Server2012 下 部署adfs IFD]]></content>
+      <categories>
+        <category>SSO</category>
+        <category>ADFS</category>
+      </categories>
+      <tags>
+        <tag>SSO</tag>
+        <tag>ADFS</tag>
+        <tag>ADDS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ADDS 活动目录安装详解]]></title>
     <url>%2F2019%2F03%2F09%2Fsso%2Fadfs%2Fadds-install%2F</url>
     <content type="text"><![CDATA[安装前准备确保域控制器 (DC) 的计算机名符合企业命名规范，因为 AD 安装完成后再更改 DC 计算机相对复杂而且存在风险。DC 需要使用固定的静态IP地址，并且把DNS设置指向本机IP。 这台电脑 (右键) –&gt; 属性，更改设置： 网络 (右键) –&gt; 属性 –&gt; 以太网 –&gt; 属性 –&gt; Internet 协议版本 4（TCP/IPV4） –&gt; 属性 开始安装 打开服务器管理器，点击 “添加角色和功能” 保持默认，并连续点击三次“下一步”。 勾选 “ActiveDirectory域服务”，然后选择添加所需的功能，最后点“下一步”继续。 功能选择页面保持默认，连续点击2次“下一步”。 勾选自动重启服务器，点击“安装”。 完成ADDS安装后，如图点击提示图标后，选择“将此服务器提升为域控制器”。 由于这是第一台域控制器(DC)，也叫林根域。选择“添加新林”，然后输入根域名。 选择林和域功能级别，勾选DNS(AD需要高度集成DNS)，并输入目录还原模式密码。 由于现在还没有DNS服务器，所以会提示无法创建委派。直接“下一步”。 NetBIOS名以及ADDS数据库、日志、Sysvol保存位置，如果企业没有特殊要求，一般保持默认即可。 检查配置无误后点击“下一步”，然后点击“安装”，等待安装完成后重启即可。 至此完成 ActiveDirectory 的全部安装。已经可以对外提供服务了。 参考Active Directory管理之一:活动目录安装详解]]></content>
