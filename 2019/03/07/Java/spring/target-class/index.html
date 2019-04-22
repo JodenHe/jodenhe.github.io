@@ -896,7 +896,7 @@
                 document.getElementById("gitment-display-button").style.display = "none";
                 document.getElementById("gitment-container").style.display = "block";
 	var str = window.location.pathname;
-                var _str = str.spilt("/");
+                var _str = str.split("/");
                 var gitment = new Gitment({
                         id: _str[_str.length - 2], 
                         owner: 'JodenHe',
