@@ -1168,26 +1168,29 @@
 
 
 
-
-<!-- LOCAL: You can save these files to your site and update links -->
     
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
     
-<!-- END LOCAL -->
-
     
-      <style>
-        a.gitment-editor-footer-tip { display: none; }
-        .gitment-container.gitment-footer-container { display: none; }
-      </style>
     
-
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
     
-
-
-
+        <script type="text/javascript">
+            function showGitment(){
+                document.getElementById("gitment-display-button").style.display = "none";
+                document.getElementById("gitment-container").style.display = "block";
+                var gitment = new Gitment({
+                        id: window.location.pathname, 
+                        owner: 'JodenHe',
+                        repo: 'jodenhe.github.io',
+                        oauth: {
+                            client_id: 'fab3896be814d5342b04',
+                            client_secret: '906a4c034d6c63d71e677c089663fff85fba982a',
+                        }});
+                gitment.render('gitment-container');
+            }
+        </script>
+    
 
 
 
