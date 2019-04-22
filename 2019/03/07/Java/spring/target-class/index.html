@@ -895,8 +895,10 @@
             function showGitment(){
                 document.getElementById("gitment-display-button").style.display = "none";
                 document.getElementById("gitment-container").style.display = "block";
+	var str = window.location.pathname;
+                var _str = str.spilt("/");
                 var gitment = new Gitment({
-                        id: window.location.pathname, 
+                        id: _str[_str.length - 2], 
                         owner: 'JodenHe',
                         repo: 'jodenhe.github.io',
                         oauth: {
