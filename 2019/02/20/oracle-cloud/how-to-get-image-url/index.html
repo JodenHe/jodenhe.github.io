@@ -371,6 +371,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/20/oracle-cloud/how-to-get-image-url/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/02/20/oracle-cloud/how-to-get-image-url/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -847,20 +857,27 @@
 <!-- LOCAL: You can save these files to your site and update links -->
     
         
-        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
     
 <!-- END LOCAL -->
 
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
     
 
     
       <script type="text/javascript">
       function renderGitment(){
-        var gitment = new Gitment({
+        var gitment = new Gitmint({
             id: window.location.pathname, 
-            owner: '',
-            repo: '',
+            owner: 'JodenHe',
+            repo: 'jodenhe.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
             
             oauth: {
             
