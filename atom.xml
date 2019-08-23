@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-22T06:02:43.928Z</updated>
+  <updated>2019-08-23T14:36:12.305Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>oracle cloud 用户角色权限表关系</title>
+    <link href="http://yoursite.com/2019/08/23/oracle-cloud/user-role-privilege/"/>
+    <id>http://yoursite.com/2019/08/23/oracle-cloud/user-role-privilege/</id>
+    <published>2019-08-23T14:22:39.629Z</published>
+    <updated>2019-08-23T14:36:12.305Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Cloud-查看用户角色权限"><a href="#Cloud-查看用户角色权限" class="headerlink" title="Cloud 查看用户角色权限"></a>Cloud 查看用户角色权限</h2><p><img src="/images/oracle_cloud/20190823222822.png" alt="Security Console"></p><p><img src="/images/oracle_cloud/20190823223248.png" alt="user role privilege"></p><h2 id="表关系"><a href="#表关系" class="headerlink" title="表关系"></a>表关系</h2><p>主要涉及表：</p><blockquote><p>前缀ASE开头的</p></blockquote><p><code>ASE_USER_VL</code>  用户表</p><p><code>ASE_USER_ROLE_MBR</code>  用户角色分配表</p><p><code>ASE_ROLE_VL</code>  角色表</p><p><code>ASE_PRIVILEGE_VL</code>  权限表</p><p><code>ASE_PRIV_ROLE_MBR</code>  权限角色表</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://community.oracle.com/thread/3924763?parent=MOSC_EXTERNAL&amp;sourceId=MOSC&amp;id=3924763" target="_blank" rel="noopener">https://community.oracle.com/thread/3924763?parent=MOSC_EXTERNAL&amp;sourceId=MOSC&amp;id=3924763</a></p><p><img src="/images/oracle_cloud/20190823223516.png" alt="参考"></p>]]></content>
+    
+    <summary type="html">
+    
+      oracle cloud 中用户角色权限之间的表关系
+    
+    </summary>
+    
+      <category term="Oracle Cloud" scheme="http://yoursite.com/categories/Oracle-Cloud/"/>
+    
+    
+      <category term="Oracle Cloud" scheme="http://yoursite.com/tags/Oracle-Cloud/"/>
+    
+      <category term="Role-Privileges" scheme="http://yoursite.com/tags/Role-Privileges/"/>
+    
+  </entry>
   
   <entry>
     <title>初识 OOM</title>
