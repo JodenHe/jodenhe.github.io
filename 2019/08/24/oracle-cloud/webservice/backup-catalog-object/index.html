@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Oracle Cloud,catalog," />
 
 
 
@@ -88,17 +88,25 @@
 
 
 
-<meta name="description" content="个人小博客">
-<meta name="keywords" content="java, python">
-<meta property="og:type" content="website">
-<meta property="og:title" content="麻瓜吃菜鸟">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+<meta name="description" content="本文介绍使用 oracle cloud webservice 备份报表 catalog 对象">
+<meta name="keywords" content="Oracle Cloud,catalog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用 webservice 备份报表 catalog 对象">
+<meta property="og:url" content="http://yoursite.com/2019/08/24/oracle-cloud/webservice/backup-catalog-object/index.html">
 <meta property="og:site_name" content="麻瓜吃菜鸟">
-<meta property="og:description" content="个人小博客">
+<meta property="og:description" content="本文介绍使用 oracle cloud webservice 备份报表 catalog 对象">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/oracle_cloud/20190824172652.png">
+<meta property="og:image" content="http://yoursite.com/images/oracle_cloud/20190824163707.png">
+<meta property="og:image" content="http://yoursite.com/images/oracle_cloud/20190824172457.png">
+<meta property="og:image" content="http://yoursite.com/images/oracle_cloud/20190824170436.png">
+<meta property="og:image" content="http://yoursite.com/images/oracle_cloud/20190824172916.png">
+<meta property="og:image" content="http://yoursite.com/images/oracle_cloud/20190824173101.png">
+<meta property="og:updated_time" content="2019-08-24T09:36:47.242Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="麻瓜吃菜鸟">
-<meta name="twitter:description" content="个人小博客">
+<meta name="twitter:title" content="如何使用 webservice 备份报表 catalog 对象">
+<meta name="twitter:description" content="本文介绍使用 oracle cloud webservice 备份报表 catalog 对象">
+<meta name="twitter:image" content="http://yoursite.com/images/oracle_cloud/20190824172652.png">
 
 
 
@@ -128,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/08/24/oracle-cloud/webservice/backup-catalog-object/"/>
 
 
 
 
 
-  <title>归档 | 麻瓜吃菜鸟</title>
+  <title>如何使用 webservice 备份报表 catalog 对象 | 麻瓜吃菜鸟</title>
   
 
 
@@ -153,7 +161,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/JodenHe" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -291,411 +299,289 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/24/oracle-cloud/webservice/backup-catalog-object/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joden He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="麻瓜吃菜鸟">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">如何使用 webservice 备份报表 catalog 对象</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-24T16:13:09+08:00">
+                2019-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 16 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Oracle-Cloud/" itemprop="url" rel="index">
+                    <span itemprop="name">Oracle Cloud</span>
+                  </a>
+                </span>
 
-      
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Oracle-Cloud/webservice/" itemprop="url" rel="index">
+                    <span itemprop="name">webservice</span>
+                  </a>
+                </span>
 
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/2019/08/24/oracle-cloud/webservice/backup-catalog-object/" class="leancloud_visitors" data-flag-title="如何使用 webservice 备份报表 catalog 对象">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/24/oracle-cloud/webservice/backup-catalog-object/" itemprop="url">
+          
+
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">如何使用 webservice 备份报表 catalog 对象</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  441
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-24T16:13:09+08:00"
-              content="2019-08-24" >
-          08-24
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
 
+          
+              <div class="post-description">
+                  本文介绍使用 oracle cloud webservice 备份报表 catalog 对象
+              </div>
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/23/oracle-cloud/user-role-privilege/" itemprop="url">
-              
-                <span itemprop="name">oracle cloud 用户角色权限表关系</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-23T22:22:39+08:00"
-              content="2019-08-23" >
-          08-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/06/20/Java/jvm/oom-1/" itemprop="url">
-              
-                <span itemprop="name">初识 OOM</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-06-20T19:37:37+08:00"
-              content="2019-06-20" >
-          06-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h2 id="手动备份"><a href="#手动备份" class="headerlink" title="手动备份"></a>手动备份</h2><p>如果不是经常需要进行备份可以通过手动进行备份，没必要通过 <code>webservice</code> 备份，可以使用以下两种方式手动操作</p>
+<ul>
+<li>BIP: <a href="http://docs.oracle.com/cd/E28280_01/bi.1111/e22257/manage_obj_bi_pub_cat.htm#BIPUG261" target="_blank" rel="noopener">Downloading and Uploading Catalog Objects</a></li>
+<li>OBIEE: <a href="http://docs.oracle.com/cd/E28280_01/bi.1111/e10544/mancat.htm#BIEUG321" target="_blank" rel="noopener">Archiving Objects</a></li>
+</ul>
+<blockquote>
+<p>ps: 进入<code>BI Publisher</code> <code>https://xxx.com/xmlpserver</code></p>
+</blockquote>
+<h2 id="webservice-备份"><a href="#webservice-备份" class="headerlink" title="webservice 备份"></a>webservice 备份</h2><p>其实只是用 webservice 的方式进行 BIP 备份的两步操作</p>
+<p>主要使用 webservice: <code>https://xxx.com/xmlpserver/services/v2/CatalogService?wsdl</code> 中的 <code>downloadObject</code> 和 <code>uploadObject</code> 或者 <code>updateObject</code></p>
+<p>通常情况下，我们只需要调用 <code>downloadObject</code>, 获取 <code>catalog objects</code> 然后手动通过 <code>BIP</code> 界面上传还原即可完成整个备份还原流程了。简单介绍一下流程</p>
+<h3 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h3><p><img src="/images/oracle_cloud/20190824172652.png" alt="payload"></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Envelope</span> <span class="attr">xmlns</span>=<span class="string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">downloadObject</span> <span class="attr">xmlns</span>=<span class="string">"http://xmlns.oracle.com/oxp/service/v2"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">reportAbsolutePath</span>&gt;</span>/Custom/Financials/General Ledger<span class="tag">&lt;/<span class="name">reportAbsolutePath</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">userID</span>&gt;</span>****<span class="tag">&lt;/<span class="name">userID</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">password</span>&gt;</span>***<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">downloadObject</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Envelope</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>reportAbsolutePath: 报表路径，假设我们要备份共享目录客制化的 <code>/Custom/Financials/General Ledger</code> 目录，填写 <code>/Custom/Financials/General Ledger</code></li>
+<li>userID：用户名</li>
+<li>password: 密码</li>
+</ul>
+<h3 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h3><p><img src="/images/oracle_cloud/20190824163707.png" alt="response"></p>
+<p>通过获取的 <code>base64binary Code</code> 解密生成文件就完成了文件备份的步骤了</p>
+<p><img src="/images/oracle_cloud/20190824172457.png" alt="base64 to file"></p>
+<blockquote>
+<p>测试的话可以通过 <code>https://www.hitoy.org/tool/file_base64.php</code> 在线对 <code>base64binary Code</code> 转换成文件，这里下载的是文件夹因此后缀名写 <code>xdrz</code>, 后缀名对应请往下看</p>
+</blockquote>
+<h3 id="文件后缀名确定"><a href="#文件后缀名确定" class="headerlink" title="文件后缀名确定"></a>文件后缀名确定</h3><p><code>catalog</code> 对象文件后缀名的对应如下，在转文件时需要使用正确的后缀名，不然 BIP 上传还原报错</p>
+<table>
+<thead>
+<tr>
+<th>Catalog Object</th>
+<th>Extension Assigned to Downloaded Files</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Model</td>
+<td>.xdmz</td>
+</tr>
+<tr>
+<td>Folder</td>
+<td>.xdrz</td>
+</tr>
+<tr>
+<td>Report</td>
+<td>.xdoz</td>
+</tr>
+<tr>
+<td>Style Template</td>
+<td>.xssz</td>
+</tr>
+<tr>
+<td>Subtemplate</td>
+<td>.xsbz</td>
+</tr>
+</tbody>
+</table>
+<h3 id="BIP-上传-catalog-对象进行还原"><a href="#BIP-上传-catalog-对象进行还原" class="headerlink" title="BIP 上传 catalog 对象进行还原"></a>BIP 上传 <code>catalog</code> 对象进行还原</h3><p>输入网址 <code>https://xxx.com/xmlpserver</code> 进入 BIP 界面</p>
+<p>进入 <code>catalog</code>  管理界面，下图两个框框位置都可以进入</p>
+<p><img src="/images/oracle_cloud/20190824170436.png" alt="catalog manage"></p>
+<p>进入要还原到的目录下进行以下操作</p>
+<p><img src="/images/oracle_cloud/20190824172916.png" alt="upload catalog"></p>
+<p>还原成功</p>
+<p><img src="/images/oracle_cloud/20190824173101.png" alt="success"></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/03/28/Java/spring/security-none-filters-none-access-permitAll/" itemprop="url">
-              
-                <span itemprop="name">[译文] Spring Security – security none, filters none, access permitAll</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-28T22:37:45+08:00"
-              content="2019-03-28" >
-          03-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/03/21/Java/java-proxy-url-file/" itemprop="url">
-              
-                <span itemprop="name">Java 代理中转下载 url 文件</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-21T14:53:10+08:00"
-              content="2019-03-21" >
-          03-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/03/11/sso/adfs/adfs-install/" itemprop="url">
-              
-                <span itemprop="name">ADFS 安装及配置</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-11T21:36:17+08:00"
-              content="2019-03-11" >
-          03-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/03/09/sso/adfs/adds-install/" itemprop="url">
-              
-                <span itemprop="name">ADDS 活动目录安装详解</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-09T18:15:27+08:00"
-              content="2019-03-09" >
-          03-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/03/07/Java/spring/target-class/" itemprop="url">
-              
-                <span itemprop="name">[转载] 获取被代理类的真实类</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-07T20:29:17+08:00"
-              content="2019-03-07" >
-          03-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/20/oracle-cloud/how-to-get-image-url/" itemprop="url">
-              
-                <span itemprop="name">oracle cloud 如何获取图片 url</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-20T21:22:56+08:00"
-              content="2019-02-20" >
-          02-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/20/oracle-cloud/po/how-to-get-shipping-method/" itemprop="url">
-              
-                <span itemprop="name">如何获取 oracle cloud 的 PO 的 shipping method</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-20T21:12:38+08:00"
-              content="2019-02-20" >
-          02-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Oracle-Cloud/" rel="tag"><i class="fa fa-tag"></i> Oracle Cloud</a>
+          
+            <a href="/tags/catalog/" rel="tag"><i class="fa fa-tag"></i> catalog</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/23/oracle-cloud/user-role-privilege/" rel="next" title="oracle cloud 用户角色权限表关系">
+                <i class="fa fa-chevron-left"></i> oracle cloud 用户角色权限表关系
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -703,6 +589,16 @@
 
 
           
+
+  
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+
+  
+
+
 
         </div>
         
@@ -723,8 +619,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -835,6 +740,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#手动备份"><span class="nav-number">1.</span> <span class="nav-text">手动备份</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webservice-备份"><span class="nav-number">2.</span> <span class="nav-text">webservice 备份</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求报文"><span class="nav-number">2.1.</span> <span class="nav-text">请求报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应报文"><span class="nav-number">2.2.</span> <span class="nav-text">响应报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件后缀名确定"><span class="nav-number">2.3.</span> <span class="nav-text">文件后缀名确定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BIP-上传-catalog-对象进行还原"><span class="nav-number">2.4.</span> <span class="nav-text">BIP 上传 catalog 对象进行还原</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -993,6 +914,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
