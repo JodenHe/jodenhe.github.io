@@ -96,10 +96,13 @@
 <meta property="og:site_name" content="麻瓜吃菜鸟">
 <meta property="og:description" content="Oracle Cloud PO 界面上显示的 shipping method 在后台是通过几个字段来存储的，要获取该字段得使用函数获取。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-20T13:20:20.028Z">
+<meta property="og:image" content="http://yoursite.com/images/oracle_cloud/20190826222844.png">
+<meta property="og:image" content="http://yoursite.com/images/oracle_cloud/20190826223054.png">
+<meta property="og:updated_time" content="2019-08-26T15:04:01.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何获取 oracle cloud 的 PO 的 shipping method">
 <meta name="twitter:description" content="Oracle Cloud PO 界面上显示的 shipping method 在后台是通过几个字段来存储的，要获取该字段得使用函数获取。">
+<meta name="twitter:image" content="http://yoursite.com/images/oracle_cloud/20190826222844.png">
 
 
 
@@ -411,7 +414,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  72
+                  171
                 </span>
               
 
@@ -452,7 +455,19 @@
       
 
       
-        <h3 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h3><h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> po_bip_helper.get_shipping_method(carrierpartyname.party_name,</span><br><span class="line">                                         modeoftransportlookuppeo.meaning,</span><br><span class="line">                                         servicelevellookuppeo.meaning) <span class="keyword">AS</span> shippingmethod</span><br><span class="line">  <span class="keyword">FROM</span> wsh_carriers   carrier,</span><br><span class="line">       hz_parties     carrierpartyname,</span><br><span class="line">       fnd_lookups    modeoftransportlookuppeo,</span><br><span class="line">       fnd_lookups    servicelevellookuppeo,</span><br><span class="line">       po_headers_all header</span><br><span class="line"> <span class="keyword">WHERE</span> (header.mode_of_transport = modeoftransportlookuppeo.lookup_code(+) <span class="keyword">AND</span> modeoftransportlookuppeo.lookup_type(+) = <span class="string">'WSH_MODE_OF_TRANSPORT'</span>)</span><br><span class="line">   <span class="keyword">AND</span> (header.service_level = servicelevellookuppeo.lookup_code(+) <span class="keyword">AND</span> servicelevellookuppeo.lookup_type(+) = <span class="string">'WSH_SERVICE_LEVELS'</span>)</span><br><span class="line">   <span class="keyword">AND</span> header.carrier_id = carrier.carrier_id(+)</span><br><span class="line">   <span class="keyword">AND</span> carrier.carrier_id = carrierpartyname.party_id(+)</span><br><span class="line">   <span class="keyword">AND</span> header.segment1 = <span class="string">'20000028'</span></span><br></pre></td></tr></table></figure>
+        <h3 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h3><blockquote>
+<p>Oracle Cloud Application 19B (11.13.19.04.0)</p>
+</blockquote>
+<h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><ul>
+<li>获取 po 头上的 shipping method</li>
+</ul>
+<p><img src="/images/oracle_cloud/20190826222844.png" alt="po head shipping method"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> po_bip_helper.get_shipping_method(carrierpartyname.party_name,</span><br><span class="line">                                         modeoftransportlookuppeo.meaning,</span><br><span class="line">                                         servicelevellookuppeo.meaning) <span class="keyword">AS</span> shippingmethod</span><br><span class="line">  <span class="keyword">FROM</span> wsh_carriers   carrier,</span><br><span class="line">       hz_parties     carrierpartyname,</span><br><span class="line">       fnd_lookups    modeoftransportlookuppeo,</span><br><span class="line">       fnd_lookups    servicelevellookuppeo,</span><br><span class="line">       po_headers_all header</span><br><span class="line"> <span class="keyword">WHERE</span> (header.mode_of_transport = modeoftransportlookuppeo.lookup_code(+) <span class="keyword">AND</span> modeoftransportlookuppeo.lookup_type(+) = <span class="string">'WSH_MODE_OF_TRANSPORT'</span>)</span><br><span class="line">   <span class="keyword">AND</span> (header.service_level = servicelevellookuppeo.lookup_code(+) <span class="keyword">AND</span> servicelevellookuppeo.lookup_type(+) = <span class="string">'WSH_SERVICE_LEVELS'</span>)</span><br><span class="line">   <span class="keyword">AND</span> header.carrier_id = carrier.carrier_id(+)</span><br><span class="line">   <span class="keyword">AND</span> carrier.carrier_id = carrierpartyname.party_id(+)</span><br><span class="line">   <span class="keyword">AND</span> header.segment1 = <span class="string">'20000028'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取 po 行上的 shipping method</li>
+</ul>
+<p><img src="/images/oracle_cloud/20190826223054.png" alt="po line shipping method"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> po_bip_helper.get_shipping_method(carrierpartyname.party_name,</span><br><span class="line">                                         modeoftransportlookuppeo.meaning,</span><br><span class="line">                                         servicelevellookuppeo.meaning) <span class="keyword">AS</span> shippingmethod</span><br><span class="line">  <span class="keyword">FROM</span> wsh_carriers          carrier,</span><br><span class="line">       hz_parties            carrierpartyname,</span><br><span class="line">       fnd_lookups           modeoftransportlookuppeo,</span><br><span class="line">       fnd_lookups           servicelevellookuppeo,</span><br><span class="line">       po_line_locations_all plla</span><br><span class="line"> <span class="keyword">WHERE</span> (plla.mode_of_transport = modeoftransportlookuppeo.lookup_code(+) <span class="keyword">AND</span> modeoftransportlookuppeo.lookup_type(+) = <span class="string">'WSH_MODE_OF_TRANSPORT'</span>)</span><br><span class="line">   <span class="keyword">AND</span> (plla.service_level = servicelevellookuppeo.lookup_code(+) <span class="keyword">AND</span> servicelevellookuppeo.lookup_type(+) = <span class="string">'WSH_SERVICE_LEVELS'</span>)</span><br><span class="line">   <span class="keyword">AND</span> plla.carrier_id = carrier.carrier_id(+)</span><br><span class="line">   <span class="keyword">AND</span> carrier.carrier_id = carrierpartyname.party_id(+)</span><br><span class="line">   <span class="keyword">AND</span> plla.po_header_id = pla.po_header_id</span><br><span class="line">   <span class="keyword">AND</span> plla.po_line_id = pla.po_line_id</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -720,7 +735,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">11.9k</span>
+    <span title="Site words total count">12.0k</span>
   
 </div>
 
