@@ -102,7 +102,7 @@
 <meta property="og:image" content="http://yoursite.com/images/oracle_cloud/20190824170436.png">
 <meta property="og:image" content="http://yoursite.com/images/oracle_cloud/20190824172916.png">
 <meta property="og:image" content="http://yoursite.com/images/oracle_cloud/20190824173101.png">
-<meta property="og:updated_time" content="2019-08-27T13:45:27.052Z">
+<meta property="og:updated_time" content="2019-08-27T15:29:52.689Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何使用 webservice 备份报表 catalog 对象">
 <meta name="twitter:description" content="本文介绍使用 oracle cloud webservice 备份报表 catalog 对象">
@@ -418,7 +418,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  441
+                  544
                 </span>
               
 
@@ -521,6 +521,7 @@
 <p><img src="/images/oracle_cloud/20190824172916.png" alt="upload catalog"></p>
 <p>还原成功</p>
 <p><img src="/images/oracle_cloud/20190824173101.png" alt="success"></p>
+<h2 id="测试结果分析"><a href="#测试结果分析" class="headerlink" title="测试结果分析"></a>测试结果分析</h2><p>后期测试发现，下载的文件夹，如果里面的内容过多（猜测是文件夹过多）会导致upload的时候失败，原因未明，另外发现通过下载上传的方式无法保留原文件的权限等设置。因此，感觉如非必要还是通过 <code>OBIEE</code> 方式进行备份吧（也就是归档与反归档）</p>
 
       
     </div>
@@ -750,7 +751,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#手动备份"><span class="nav-number">1.</span> <span class="nav-text">手动备份</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webservice-备份"><span class="nav-number">2.</span> <span class="nav-text">webservice 备份</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求报文"><span class="nav-number">2.1.</span> <span class="nav-text">请求报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应报文"><span class="nav-number">2.2.</span> <span class="nav-text">响应报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件后缀名确定"><span class="nav-number">2.3.</span> <span class="nav-text">文件后缀名确定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BIP-上传-catalog-对象进行还原"><span class="nav-number">2.4.</span> <span class="nav-text">BIP 上传 catalog 对象进行还原</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#手动备份"><span class="nav-number">1.</span> <span class="nav-text">手动备份</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webservice-备份"><span class="nav-number">2.</span> <span class="nav-text">webservice 备份</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求报文"><span class="nav-number">2.1.</span> <span class="nav-text">请求报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应报文"><span class="nav-number">2.2.</span> <span class="nav-text">响应报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件后缀名确定"><span class="nav-number">2.3.</span> <span class="nav-text">文件后缀名确定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BIP-上传-catalog-对象进行还原"><span class="nav-number">2.4.</span> <span class="nav-text">BIP 上传 catalog 对象进行还原</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试结果分析"><span class="nav-number">3.</span> <span class="nav-text">测试结果分析</span></a></li></ol></div>
             
 
           </div>
@@ -784,7 +785,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">12.0k</span>
+    <span title="Site words total count">12.1k</span>
   
 </div>
 
