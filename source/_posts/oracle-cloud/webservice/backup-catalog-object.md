@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2019-08-24 00:00:00
 title: 如何使用 webservice 备份报表 catalog 对象
 author: Joden_He
@@ -85,3 +85,8 @@ description: 本文介绍使用 oracle cloud webservice 备份报表 catalog 对
 还原成功
 
 ![success](/images/oracle_cloud/20190824173101.png)
+
+## 测试结果分析
+
+后期测试发现，下载的文件夹，如果里面的内容过多（猜测是文件夹过多）会导致upload的时候失败，原因未明，另外发现通过下载上传的方式无法保留原文件的权限等设置。因此，感觉如非必要还是通过 `OBIEE` 方式进行备份吧（也就是归档与反归档）
+
