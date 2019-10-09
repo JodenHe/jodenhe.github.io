@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2019-08-23 00:00:00
 title: oracle cloud 用户角色权限表关系
 author: Joden_He
@@ -91,7 +91,12 @@ user_role_ AS
          decode((SELECT 1
                   FROM dual
                  WHERE (u.effective_start_date <= SYSDATE OR u.effective_start_date IS NULL)
-                   AND (u.effective_end_date >= SYSDATE OR u.effective_end_date IS NULL)),
+                   AND (u.effective_end_date >= SYSDATE OR u.effective_end_date IS NULL)
+                      -- 使用suspend 判断是否失效
+                   AND EXISTS (SELECT 1
+                          FROM per_users pu
+                         WHERE pu.user_guid = u.user_guid
+                           AND pu.suspended = 'N')),
                 1,
                 'Active',
                 'Inactive') AS is_user_active,
@@ -166,6 +171,7 @@ SELECT t.user_login,
    AND (t.user_role_creation_date >= :p_ur_creation_date_from OR :p_ur_creation_date_from IS NULL)
    AND (t.user_role_creation_date <= :p_ur_creation_date_to OR :p_ur_creation_date_to IS NULL)
 
+
 ```
 
 
@@ -174,4 +180,4 @@ SELECT t.user_login,
 
 [https://community.oracle.com/thread/3924763?parent=MOSC_EXTERNAL&sourceId=MOSC&id=3924763](https://community.oracle.com/thread/3924763?parent=MOSC_EXTERNAL&sourceId=MOSC&id=3924763)
 
-![参考](/images/oracle_cloud/20190823223516.png)
+![参考](/images/oracle_cloud/20190823223516.png) hen
