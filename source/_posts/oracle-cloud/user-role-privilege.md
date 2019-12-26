@@ -1,6 +1,6 @@
 ---
 date: 2019-08-23 00:00:00
-title: oracle cloud 用户角色权限表关系
+title: oracle cloud 用户角色权限表关系（废弃）
 author: Joden_He
 tags: 
   - Oracle Cloud
@@ -9,6 +9,8 @@ categories:
   - Oracle Cloud
 description: oracle cloud 中用户角色权限之间的表关系
 ---
+
+> 根据 sr 回复，ase相关表只是给 oracle 内部使用，表的数据并不准确，后期如果有找到相关表再做更新吧，大家看到这个直接忽略吧，打扰了
 
 ## Cloud 查看用户角色权限
 
