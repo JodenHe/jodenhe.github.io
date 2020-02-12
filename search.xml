@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Windows Server 2016 搭建 FTP]]></title>
+    <url>%2F2020%2F02%2F12%2Fwindows%2Fwindows_server_2016_ftp%2F</url>
+    <content type="text"><![CDATA[安装 WEB 服务器通过服务器添加角色和功能向导添加 Web 服务器(IIS) 服务器管理器 —— 添加角色功能 —— Web 服务器(IIS) 下一步 下一步 下一步 选择 ftp 并且点击下一步 安装 关闭 添加 FTP 站点在 计算机管理 中根据提示添加即可 填写自定义信息，下一步 填写信息，下一步 根据需要配置权限信息 打开IE浏览器，在Internet 选项 中设置 使用被动 FTP 防火墙开放端口在服务器管理中打开 高级安全 Windows 防火墙，点击 入站规则 —— 新建规则，根据提示添加远程端口（默认为21端口），建议将端口设置为非 21 端口。 登录验证在windows资源管理器中输入以下地址即可登陆： 1ftp://ip地址:端口 或者 1ftp://username:password@ip地址:端口 参考Windows Server 2016 搭建 FTP环境]]></content>
+      <categories>
+        <category>windows</category>
+        <category>ftp</category>
+      </categories>
+      <tags>
+        <tag>windows server</tag>
+        <tag>windows server 2016</tag>
+        <tag>ftp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[如何使用 webservice 备份报表 catalog 对象]]></title>
     <url>%2F2019%2F08%2F24%2Foracle-cloud%2Fwebservice%2Fbackup-catalog-object%2F</url>
     <content type="text"><![CDATA[手动备份如果不是经常需要进行备份可以通过手动进行备份，没必要通过 webservice 备份，可以使用以下两种方式手动操作 BIP: Downloading and Uploading Catalog Objects OBIEE: Archiving Objects ps: 进入BI Publisher https://xxx.com/xmlpserver webservice 备份其实只是用 webservice 的方式进行 BIP 备份的两步操作 主要使用 webservice: https://xxx.com/xmlpserver/services/v2/CatalogService?wsdl 中的 downloadObject 和 uploadObject 或者 updateObject 通常情况下，我们只需要调用 downloadObject, 获取 catalog objects 然后手动通过 BIP 界面上传还原即可完成整个备份还原流程了。简单介绍一下流程 请求报文 123456789&lt;Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/"&gt; &lt;Body&gt; &lt;downloadObject xmlns="http://xmlns.oracle.com/oxp/service/v2"&gt; &lt;reportAbsolutePath&gt;/Custom/Financials/General Ledger&lt;/reportAbsolutePath&gt; &lt;userID&gt;****&lt;/userID&gt; &lt;password&gt;***&lt;/password&gt; &lt;/downloadObject&gt; &lt;/Body&gt;&lt;/Envelope&gt; reportAbsolutePath: 报表路径，假设我们要备份共享目录客制化的 /Custom/Financials/General Ledger 目录，填写 /Custom/Financials/General Ledger userID：用户名 password: 密码 响应报文 通过获取的 base64binary Code 解密生成文件就完成了文件备份的步骤了 测试的话可以通过 https://www.hitoy.org/tool/file_base64.php 在线对 base64binary Code 转换成文件，这里下载的是文件夹因此后缀名写 xdrz, 后缀名对应请往下看 文件后缀名确定catalog 对象文件后缀名的对应如下，在转文件时需要使用正确的后缀名，不然 BIP 上传还原报错 Catalog Object Extension Assigned to Downloaded Files Data Model .xdmz Folder .xdrz Report .xdoz Style Template .xssz Subtemplate .xsbz BIP 上传 catalog 对象进行还原输入网址 https://xxx.com/xmlpserver 进入 BIP 界面 进入 catalog 管理界面，下图两个框框位置都可以进入 进入要还原到的目录下进行以下操作 还原成功 测试结果分析后期测试发现，下载的文件夹，如果里面的内容过多（猜测是文件夹过多）会导致upload的时候失败，原因未明，另外发现通过下载上传的方式无法保留原文件的权限等设置。因此，感觉如非必要还是通过 OBIEE 方式进行备份吧（也就是归档与反归档）]]></content>
