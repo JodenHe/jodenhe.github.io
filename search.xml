@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[windows 下 cronolog 进行日志切割]]></title>
+    <url>%2F2020%2F06%2F03%2FJava%2Fcronolog-win%2F</url>
+    <content type="text"><![CDATA[软件包下载地址1链接: https://pan.baidu.com/s/1xhhBKCthOxZuYBhEL4pb-Q 提取码: 9mxj jar 包日志分割 以 springboot 的jar为例，其他 jar 包类似 windows 环境 从上述地址👆下载对应系统的 cronolog 包 解压存放到指定目录，例如 d:\cronolog 执行 jar 启动命令 1java -jar xxx.jar | d:\cronolog\cronolog.exe 日志输出路径\xxx-%%Y%%m%%d.log 要是想后端运行可以编写bat启动脚本 12345@echo offjavaw -jar xxx.jar | d:\cronolog\cronolog.exe 日志输出路径\xxx-%%Y%%m%%d.logexit linux 环境 下载安装包 cronolog-1.6.2.tar.gz 123wget http://cronolog.org/download/cronolog-1.6.2.tar.gz # 或者wget https://files.cnblogs.com/files/crazyzero/cronolog-1.6.2.tar.gz 解压 1tar zxvf cronolog-1.6.2.tar.gz 安装 1234cd cronolog-1.6.2./configuremakesudo make install 验证 12which cronolog# 输出 /usr/local/sbin/cronolog 执行 jar 启动命令 1java -jar xxx.jar | /usr/local/sbin/cronolog 日志输出路径\xxx-%Y%m%d.log 要是想后端运行可以使用以下命令 1nohub java -jar xxx.jar | /usr/local/sbin/cronolog 日志输出路径\xxx-%Y%m%d.log &amp; tomcat 进行日志分割 这个内容网上很多资源，在此不展开说，例如：https://blog.csdn.net/fly910905/article/details/78528652]]></content>
+      <categories>
+        <category>Java</category>
+        <category>cronolog</category>
+      </categories>
+      <tags>
+        <tag>log</tag>
+        <tag>cronolog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Windows Server 2016 搭建 FTP]]></title>
     <url>%2F2020%2F02%2F12%2Fwindows%2Fwindows_server_2016_ftp%2F</url>
     <content type="text"><![CDATA[安装 WEB 服务器通过服务器添加角色和功能向导添加 Web 服务器(IIS) 服务器管理器 —— 添加角色功能 —— Web 服务器(IIS) 下一步 下一步 下一步 选择 ftp 并且点击下一步 安装 关闭 添加 FTP 站点在 计算机管理 中根据提示添加即可 填写自定义信息，下一步 填写信息，下一步 根据需要配置权限信息 打开IE浏览器，在Internet 选项 中设置 使用被动 FTP 防火墙开放端口在服务器管理中打开 高级安全 Windows 防火墙，点击 入站规则 —— 新建规则，根据提示添加远程端口（默认为21端口），建议将端口设置为非 21 端口。 登录验证在windows资源管理器中输入以下地址即可登陆： 1ftp://ip地址:端口 或者 1ftp://username:password@ip地址:端口 参考Windows Server 2016 搭建 FTP环境]]></content>

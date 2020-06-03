@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="log,cronolog," />
 
 
 
@@ -88,17 +88,21 @@
 
 
 
-<meta name="description" content="个人小博客">
-<meta name="keywords" content="java, python">
-<meta property="og:type" content="website">
-<meta property="og:title" content="麻瓜吃菜鸟">
-<meta property="og:url" content="http://yoursite.com/categories/Oracle-Cloud/PO/index.html">
+<meta name="description" content="在linux下我们可以使用 cronolog 对 tomcat 服务器的日志进行切割，那么在windows下是否同样可以使用 cronlog 呢？jar 包启动的方式怎么可以对日志进行切割呢？本文主要针对windows下jar包启动方式的日志 进行演示讲解，同时简要介绍一下linux系统下的操作。">
+<meta name="keywords" content="log,cronolog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="windows 下 cronolog 进行日志切割">
+<meta property="og:url" content="http://yoursite.com/2020/06/03/Java/cronolog-win/index.html">
 <meta property="og:site_name" content="麻瓜吃菜鸟">
-<meta property="og:description" content="个人小博客">
+<meta property="og:description" content="在linux下我们可以使用 cronolog 对 tomcat 服务器的日志进行切割，那么在windows下是否同样可以使用 cronlog 呢？jar 包启动的方式怎么可以对日志进行切割呢？本文主要针对windows下jar包启动方式的日志 进行演示讲解，同时简要介绍一下linux系统下的操作。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/java/cronolog/20200603133210.png">
+<meta property="og:image" content="http://yoursite.com/images/java/cronolog/20200603133932.png">
+<meta property="og:updated_time" content="2020-06-03T05:59:54.027Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="麻瓜吃菜鸟">
-<meta name="twitter:description" content="个人小博客">
+<meta name="twitter:title" content="windows 下 cronolog 进行日志切割">
+<meta name="twitter:description" content="在linux下我们可以使用 cronolog 对 tomcat 服务器的日志进行切割，那么在windows下是否同样可以使用 cronlog 呢？jar 包启动的方式怎么可以对日志进行切割呢？本文主要针对windows下jar包启动方式的日志 进行演示讲解，同时简要介绍一下linux系统下的操作。">
+<meta name="twitter:image" content="http://yoursite.com/images/java/cronolog/20200603133210.png">
 
 
 
@@ -128,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/Oracle-Cloud/PO/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/06/03/Java/cronolog-win/"/>
 
 
 
 
 
-  <title>分类: PO | 麻瓜吃菜鸟</title>
+  <title>windows 下 cronolog 进行日志切割 | 麻瓜吃菜鸟</title>
   
 
 
@@ -153,7 +157,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/JodenHe" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -291,55 +295,270 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>PO<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/03/Java/cronolog-win/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joden He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="麻瓜吃菜鸟">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/02/20/oracle-cloud/po/how-to-get-shipping-method/" itemprop="url">
-              
-                <span itemprop="name">如何获取 oracle cloud 的 PO 的 shipping method</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">windows 下 cronolog 进行日志切割</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-20T12:00:00+08:00"
-              content="2019-02-20" >
-          02-20
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-03T10:00:00+08:00">
+                2020-06-03
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/cronolog/" itemprop="url" rel="index">
+                    <span itemprop="name">cronolog</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/06/03/Java/cronolog-win/" class="leancloud_visitors" data-flag-title="windows 下 cronolog 进行日志切割">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  317
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  在linux下我们可以使用 cronolog 对 tomcat 服务器的日志进行切割，那么在windows下是否同样可以使用 cronlog 呢？jar 包启动的方式怎么可以对日志进行切割呢？本文主要针对windows下jar包启动方式的日志 进行演示讲解，同时简要介绍一下linux系统下的操作。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="软件包下载地址"><a href="#软件包下载地址" class="headerlink" title="软件包下载地址"></a>软件包下载地址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">链接: https://pan.baidu.com/s/1xhhBKCthOxZuYBhEL4pb-Q 提取码: 9mxj</span><br></pre></td></tr></table></figure>
+<h3 id="jar-包日志分割"><a href="#jar-包日志分割" class="headerlink" title="jar 包日志分割"></a>jar 包日志分割</h3><blockquote>
+<p>以 springboot 的jar为例，其他 jar 包类似</p>
+</blockquote>
+<h4 id="windows-环境"><a href="#windows-环境" class="headerlink" title="windows 环境"></a>windows 环境</h4><ul>
+<li><p>从上述地址👆下载对应系统的 cronolog 包</p>
+<p><img src="/images/java/cronolog/20200603133210.png" alt="cronolog-1.6.1-win32.zip"></p>
+</li>
+<li><p>解压存放到指定目录，例如 <code>d:\cronolog</code></p>
+<p><img src="/images/java/cronolog/20200603133932.png" alt=""></p>
+</li>
+<li><p>执行 jar 启动命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar xxx.jar | d:\cronolog\cronolog.exe 日志输出路径\xxx-%%Y%%m%%d.log</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>要是想后端运行可以编写bat启动脚本</p>
+</blockquote>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line">javaw -jar xxx.jar | d:\cronolog\cronolog.exe 日志输出路径\xxx-<span class="variable">%%Y</span><span class="variable">%%m</span><span class="variable">%%d</span>.log</span><br><span class="line"></span><br><span class="line"><span class="keyword">exit</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="linux-环境"><a href="#linux-环境" class="headerlink" title="linux 环境"></a>linux 环境</h4><ul>
+<li><p>下载安装包 <code>cronolog-1.6.2.tar.gz</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://cronolog.org/download/cronolog-1.6.2.tar.gz </span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">wget https://files.cnblogs.com/files/crazyzero/cronolog-1.6.2.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf cronolog-1.6.2.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> cronolog-1.6.2</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> cronolog</span><br><span class="line"><span class="comment"># 输出 /usr/local/sbin/cronolog</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行 jar 启动命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar xxx.jar | /usr/<span class="built_in">local</span>/sbin/cronolog 日志输出路径\xxx-%Y%m%d.log</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>要是想后端运行可以使用以下命令</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohub java -jar xxx.jar | /usr/<span class="built_in">local</span>/sbin/cronolog 日志输出路径\xxx-%Y%m%d.log &amp;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="tomcat-进行日志分割"><a href="#tomcat-进行日志分割" class="headerlink" title="tomcat 进行日志分割"></a>tomcat 进行日志分割</h3><blockquote>
+<p>这个内容网上很多资源，在此不展开说，例如：<a href="https://blog.csdn.net/fly910905/article/details/78528652" target="_blank" rel="noopener">https://blog.csdn.net/fly910905/article/details/78528652</a></p>
+</blockquote>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/log/" rel="tag"><i class="fa fa-tag"></i> log</a>
+          
+            <a href="/tags/cronolog/" rel="tag"><i class="fa fa-tag"></i> cronolog</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/12/windows/windows_server_2016_ftp/" rel="next" title="Windows Server 2016 搭建 FTP">
+                <i class="fa fa-chevron-left"></i> Windows Server 2016 搭建 FTP
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -347,6 +566,16 @@
 
 
           
+
+  
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+
+  
+
+
 
         </div>
         
@@ -367,8 +596,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -479,6 +717,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件包下载地址"><span class="nav-number">1.</span> <span class="nav-text">软件包下载地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jar-包日志分割"><span class="nav-number">2.</span> <span class="nav-text">jar 包日志分割</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#windows-环境"><span class="nav-number">2.1.</span> <span class="nav-text">windows 环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#linux-环境"><span class="nav-number">2.2.</span> <span class="nav-text">linux 环境</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tomcat-进行日志分割"><span class="nav-number">3.</span> <span class="nav-text">tomcat 进行日志分割</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -637,6 +891,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

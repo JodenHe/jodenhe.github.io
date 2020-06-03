@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-14T03:15:11.726Z</updated>
+  <updated>2020-06-03T05:59:54.027Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>windows 下 cronolog 进行日志切割</title>
+    <link href="http://yoursite.com/2020/06/03/Java/cronolog-win/"/>
+    <id>http://yoursite.com/2020/06/03/Java/cronolog-win/</id>
+    <published>2020-06-03T02:00:00.000Z</published>
+    <updated>2020-06-03T05:59:54.027Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="软件包下载地址"><a href="#软件包下载地址" class="headerlink" title="软件包下载地址"></a>软件包下载地址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">链接: https://pan.baidu.com/s/1xhhBKCthOxZuYBhEL4pb-Q 提取码: 9mxj</span><br></pre></td></tr></table></figure><h3 id="jar-包日志分割"><a href="#jar-包日志分割" class="headerlink" title="jar 包日志分割"></a>jar 包日志分割</h3><blockquote><p>以 springboot 的jar为例，其他 jar 包类似</p></blockquote><h4 id="windows-环境"><a href="#windows-环境" class="headerlink" title="windows 环境"></a>windows 环境</h4><ul><li><p>从上述地址👆下载对应系统的 cronolog 包</p><p><img src="/images/java/cronolog/20200603133210.png" alt="cronolog-1.6.1-win32.zip"></p></li><li><p>解压存放到指定目录，例如 <code>d:\cronolog</code></p><p><img src="/images/java/cronolog/20200603133932.png" alt=""></p></li><li><p>执行 jar 启动命令</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar xxx.jar | d:\cronolog\cronolog.exe 日志输出路径\xxx-%%Y%%m%%d.log</span><br></pre></td></tr></table></figure><blockquote><p>要是想后端运行可以编写bat启动脚本</p></blockquote><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line">javaw -jar xxx.jar | d:\cronolog\cronolog.exe 日志输出路径\xxx-<span class="variable">%%Y</span><span class="variable">%%m</span><span class="variable">%%d</span>.log</span><br><span class="line"></span><br><span class="line"><span class="keyword">exit</span></span><br></pre></td></tr></table></figure></li></ul><h4 id="linux-环境"><a href="#linux-环境" class="headerlink" title="linux 环境"></a>linux 环境</h4><ul><li><p>下载安装包 <code>cronolog-1.6.2.tar.gz</code></p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://cronolog.org/download/cronolog-1.6.2.tar.gz </span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">wget https://files.cnblogs.com/files/crazyzero/cronolog-1.6.2.tar.gz</span><br></pre></td></tr></table></figure></li><li><p>解压</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf cronolog-1.6.2.tar.gz</span><br></pre></td></tr></table></figure></li><li><p>安装</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> cronolog-1.6.2</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li><li><p>验证</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> cronolog</span><br><span class="line"><span class="comment"># 输出 /usr/local/sbin/cronolog</span></span><br></pre></td></tr></table></figure></li><li><p>执行 jar 启动命令</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar xxx.jar | /usr/<span class="built_in">local</span>/sbin/cronolog 日志输出路径\xxx-%Y%m%d.log</span><br></pre></td></tr></table></figure><blockquote><p>要是想后端运行可以使用以下命令</p></blockquote><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohub java -jar xxx.jar | /usr/<span class="built_in">local</span>/sbin/cronolog 日志输出路径\xxx-%Y%m%d.log &amp;</span><br></pre></td></tr></table></figure></li></ul><h3 id="tomcat-进行日志分割"><a href="#tomcat-进行日志分割" class="headerlink" title="tomcat 进行日志分割"></a>tomcat 进行日志分割</h3><blockquote><p>这个内容网上很多资源，在此不展开说，例如：<a href="https://blog.csdn.net/fly910905/article/details/78528652" target="_blank" rel="noopener">https://blog.csdn.net/fly910905/article/details/78528652</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      在linux下我们可以使用 cronolog 对 tomcat 服务器的日志进行切割，那么在windows下是否同样可以使用 cronlog 呢？jar 包启动的方式怎么可以对日志进行切割呢？本文主要针对windows下jar包启动方式的日志 进行演示讲解，同时简要介绍一下linux系统下的操作。
+    
+    </summary>
+    
+      <category term="Java" scheme="http://yoursite.com/categories/Java/"/>
+    
+      <category term="cronolog" scheme="http://yoursite.com/categories/Java/cronolog/"/>
+    
+    
+      <category term="log" scheme="http://yoursite.com/tags/log/"/>
+    
+      <category term="cronolog" scheme="http://yoursite.com/tags/cronolog/"/>
+    
+  </entry>
   
   <entry>
     <title>Windows Server 2016 搭建 FTP</title>
