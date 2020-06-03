@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[nssm 注册 windows 服务]]></title>
+    <url>%2F2020%2F06%2F03%2Fwindows%2Fnssm_services%2F</url>
+    <content type="text"><![CDATA[背景在 Windows 服务器中启用 jar 应用，通常使用的命令是 1java -jar xx.jar 但是这种情况启动了，我们需要保持命令提示框的打开状态，所以萌生了个想法，要是我们将启动bat脚本注册成windows 服务是不是就可以优雅的管理我们的 java 应用了。 NSSM 介绍NSSM(the Non-Sucking Service Manager)是Windows环境下一款免安装的服务管理软件，它可以将应用封装成服务，使之像windows服务可以设置自动启动等。并且可以监控程序运行状态，程序异常中断后自动启动，实现守护进程的功能。不仅支持图形界面操作，也完全支持命令行设置。 NSSM 下载与配置 进入下载界面，选择最新稳定版进行下载，https://nssm.cc/download 解压到特定的目录，例如 D:\nssm-2.24，文件夹里面又 win32 和 win64 两个文件夹，根据系统的位数选择合适的应用，这里采用 win64 配置环境变量 将 nssm 解压的路径配置到环境变量的 path 里面，如：D:\nssm-2.24\win64 验证安装 cmd 命令窗输入 nssm 将bat注册成服务 新建文件 start.bat 用来启动 jar 文件 1234@echo offrem 启动jarjava -jar xx.jar 新建文件 install.bat 用来注册服务 1234567891011121314151617181920212223@echo offrem 当前路径set currpath=%cd%rem 服务名，自己修改set servicename=xxxrem 服务描述set servicedesc=xxxxrem 启动路径，对应start.bat路径set binpath=%currpath%\start.batrem 启动参数set appParams=rem 注册服务nssm install %servicename% %binpath%rem 修改服务描述sc description %servicename% "servicedesc"rem 修改注册表set regpath=HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\%servicename%\Parameters\reg edit %regpath% /v AppParameters /t REG_SZ /d "%appParams%" /freg edit %regpath%\AppExit\ /t REG_SZ /d "Ignore" /f 双击 install.bat，即可]]></content>
+      <categories>
+        <category>windows</category>
+        <category>services</category>
+      </categories>
+      <tags>
+        <tag>windows service</tag>
+        <tag>nssm</tag>
+        <tag>服务</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[windows 下 cronolog 进行日志切割]]></title>
     <url>%2F2020%2F06%2F03%2FJava%2Fcronolog-win%2F</url>
     <content type="text"><![CDATA[软件包下载地址1链接: https://pan.baidu.com/s/1xhhBKCthOxZuYBhEL4pb-Q 提取码: 9mxj jar 包日志分割 以 springboot 的jar为例，其他 jar 包类似 windows 环境 从上述地址👆下载对应系统的 cronolog 包 解压存放到指定目录，例如 d:\cronolog 执行 jar 启动命令 1java -jar xxx.jar | d:\cronolog\cronolog.exe 日志输出路径\xxx-%%Y%%m%%d.log 要是想后端运行可以编写bat启动脚本 12345@echo offjavaw -jar xxx.jar | d:\cronolog\cronolog.exe 日志输出路径\xxx-%%Y%%m%%d.logexit linux 环境 下载安装包 cronolog-1.6.2.tar.gz 123wget http://cronolog.org/download/cronolog-1.6.2.tar.gz # 或者wget https://files.cnblogs.com/files/crazyzero/cronolog-1.6.2.tar.gz 解压 1tar zxvf cronolog-1.6.2.tar.gz 安装 1234cd cronolog-1.6.2./configuremakesudo make install 验证 12which cronolog# 输出 /usr/local/sbin/cronolog 执行 jar 启动命令 1java -jar xxx.jar | /usr/local/sbin/cronolog 日志输出路径\xxx-%Y%m%d.log 要是想后端运行可以使用以下命令 1nohub java -jar xxx.jar | /usr/local/sbin/cronolog 日志输出路径\xxx-%Y%m%d.log &amp; tomcat 进行日志分割 这个内容网上很多资源，在此不展开说，例如：https://blog.csdn.net/fly910905/article/details/78528652]]></content>

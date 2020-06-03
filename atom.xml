@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-06-03T05:59:54.027Z</updated>
+  <updated>2020-06-03T08:54:16.803Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nssm 注册 windows 服务</title>
+    <link href="http://yoursite.com/2020/06/03/windows/nssm_services/"/>
+    <id>http://yoursite.com/2020/06/03/windows/nssm_services/</id>
+    <published>2020-06-03T07:56:00.000Z</published>
+    <updated>2020-06-03T08:54:16.803Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在 Windows 服务器中启用 jar 应用，通常使用的命令是</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar xx.jar</span><br></pre></td></tr></table></figure><p>但是这种情况启动了，我们需要保持命令提示框的打开状态，所以萌生了个想法，要是我们将启动bat脚本注册成windows 服务是不是就可以优雅的管理我们的 java 应用了。</p><h3 id="NSSM-介绍"><a href="#NSSM-介绍" class="headerlink" title="NSSM 介绍"></a>NSSM 介绍</h3><p><strong><a href="https://nssm.cc/" target="_blank" rel="noopener">NSSM</a></strong>(the Non-Sucking Service Manager)是Windows环境下一款<strong>免安装</strong>的服务管理软件，它可以将应用封装成服务，使之像windows服务可以设置自动启动等。并且可以监控程序运行状态，程序异常中断后自动启动，实现守护进程的功能。不仅支持图形界面操作，也完全支持命令行设置。</p><h3 id="NSSM-下载与配置"><a href="#NSSM-下载与配置" class="headerlink" title="NSSM 下载与配置"></a>NSSM 下载与配置</h3><ul><li><p>进入下载界面，选择最新稳定版进行下载，<a href="https://nssm.cc/download" target="_blank" rel="noopener">https://nssm.cc/download</a></p><p><img src="/images/windows/services/20200603161326.png" alt="NSSM 下载界面"></p></li><li><p>解压到特定的目录，例如 <code>D:\nssm-2.24</code>，文件夹里面又 <code>win32</code> 和 <code>win64</code> 两个文件夹，根据系统的位数选择合适的应用，这里采用 <code>win64</code></p><p><img src="/images/windows/services/20200603161728.png" alt="nssm 目录"></p></li><li><p>配置环境变量</p><p>将 nssm 解压的路径配置到环境变量的 path 里面，如：<code>D:\nssm-2.24\win64</code></p><p><img src="/images/windows/services/20200603162145.png" alt="nssm 环境变量"></p></li><li><p>验证安装</p><p>cmd 命令窗输入 <code>nssm</code></p><p><img src="/images/windows/services/20200603162750.png" alt="nssm 验证安装"></p></li></ul><h3 id="将bat注册成服务"><a href="#将bat注册成服务" class="headerlink" title="将bat注册成服务"></a>将bat注册成服务</h3><ul><li><p>新建文件 <code>start.bat</code> 用来启动 jar 文件</p><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line"><span class="comment">rem 启动jar</span></span><br><span class="line">java -jar xx.jar</span><br></pre></td></tr></table></figure></li></ul><ul><li><p>新建文件 <code>install.bat</code> 用来注册服务</p><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line"><span class="comment">rem 当前路径</span></span><br><span class="line"><span class="built_in">set</span> currpath=<span class="variable">%cd%</span></span><br><span class="line"><span class="comment">rem 服务名，自己修改</span></span><br><span class="line"><span class="built_in">set</span> servicename=xxx</span><br><span class="line"><span class="comment">rem 服务描述</span></span><br><span class="line"><span class="built_in">set</span> servicedesc=xxxx</span><br><span class="line"><span class="comment">rem 启动路径，对应start.bat路径</span></span><br><span class="line"><span class="built_in">set</span> binpath=<span class="variable">%currpath%</span>\<span class="built_in">start</span>.bat</span><br><span class="line"><span class="comment">rem 启动参数</span></span><br><span class="line"><span class="built_in">set</span> appParams=</span><br><span class="line"></span><br><span class="line"><span class="comment">rem 注册服务</span></span><br><span class="line">nssm install <span class="variable">%servicename%</span> <span class="variable">%binpath%</span></span><br><span class="line"><span class="comment">rem 修改服务描述</span></span><br><span class="line">sc description <span class="variable">%servicename%</span> "servicedesc"</span><br><span class="line"></span><br><span class="line"><span class="comment">rem 修改注册表</span></span><br><span class="line"><span class="built_in">set</span> regpath=HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\<span class="variable">%servicename%</span>\Parameters\</span><br><span class="line"></span><br><span class="line">reg edit <span class="variable">%regpath%</span> /v AppParameters /t REG_SZ /d "<span class="variable">%appParams%</span>" /f</span><br><span class="line">reg edit <span class="variable">%regpath%</span>\AppExit\ /t REG_SZ /d "Ignore" /f</span><br></pre></td></tr></table></figure></li></ul><ul><li>双击 <code>install.bat</code>，即可</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      介绍如何使用 nssm 注册 windows 服务
+    
+    </summary>
+    
+      <category term="windows" scheme="http://yoursite.com/categories/windows/"/>
+    
+      <category term="services" scheme="http://yoursite.com/categories/windows/services/"/>
+    
+    
+      <category term="windows service" scheme="http://yoursite.com/tags/windows-service/"/>
+    
+      <category term="nssm" scheme="http://yoursite.com/tags/nssm/"/>
+    
+      <category term="服务" scheme="http://yoursite.com/tags/%E6%9C%8D%E5%8A%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>windows 下 cronolog 进行日志切割</title>
