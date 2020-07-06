@@ -83,13 +83,13 @@ description: "在linux下我们可以使用 cronolog 对 tomcat 服务器的日�
 - 执行 jar 启动命令
 
   ```sh
-  java -jar xxx.jar | /usr/local/sbin/cronolog 日志输出路径\xxx-%Y%m%d.log
+  java -jar xxx.jar | /usr/local/sbin/cronolog 日志输出路径/xxx-%Y%m%d.log
   ```
 
   > 要是想后端运行可以使用以下命令
 
   ```sh
-  nohub java -jar xxx.jar | /usr/local/sbin/cronolog 日志输出路径\xxx-%Y%m%d.log &
+  nohub java -jar xxx.jar | /usr/local/sbin/cronolog 日志输出路径/xxx-%Y%m%d.log &
   ```
 
 ### tomcat 进行日志分割
