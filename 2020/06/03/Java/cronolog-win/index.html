@@ -98,7 +98,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/java/cronolog/20200603133210.png">
 <meta property="og:image" content="http://yoursite.com/images/java/cronolog/20200603133932.png">
-<meta property="og:updated_time" content="2020-06-03T05:59:54.027Z">
+<meta property="og:updated_time" content="2020-08-15T09:03:42.879Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windows 下 cronolog 进行日志切割">
 <meta name="twitter:description" content="在linux下我们可以使用 cronolog 对 tomcat 服务器的日志进行切割，那么在windows下是否同样可以使用 cronlog 呢？jar 包启动的方式怎么可以对日志进行切割呢？本文主要针对windows下jar包启动方式的日志 进行演示讲解，同时简要介绍一下linux系统下的操作。">
@@ -488,11 +488,11 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> cronolog</span><br><span class="line"><span class="comment"># 输出 /usr/local/sbin/cronolog</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>执行 jar 启动命令</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar xxx.jar | /usr/<span class="built_in">local</span>/sbin/cronolog 日志输出路径\xxx-%Y%m%d.log</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar xxx.jar | /usr/<span class="built_in">local</span>/sbin/cronolog 日志输出路径/xxx-%Y%m%d.log</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>要是想后端运行可以使用以下命令</p>
 </blockquote>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohub java -jar xxx.jar | /usr/<span class="built_in">local</span>/sbin/cronolog 日志输出路径\xxx-%Y%m%d.log &amp;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohub java -jar xxx.jar | /usr/<span class="built_in">local</span>/sbin/cronolog 日志输出路径/xxx-%Y%m%d.log &amp;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="tomcat-进行日志分割"><a href="#tomcat-进行日志分割" class="headerlink" title="tomcat 进行日志分割"></a>tomcat 进行日志分割</h3><blockquote>
