@@ -84,13 +84,13 @@ java -jar xx.jar
   rem 注册服务
   nssm install %servicename% %binpath%
   rem 修改服务描述
-  sc description %servicename% "servicedesc"
+  sc description %servicename% %servicedesc%
   
   rem 修改注册表
   set regpath=HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\%servicename%\Parameters\
   
-  reg edit %regpath% /v AppParameters /t REG_SZ /d "%appParams%" /f
-  reg edit %regpath%\AppExit\ /t REG_SZ /d "Ignore" /f
+  reg add %regpath% /v AppParameters /t REG_SZ /d "%appParams%" /f
+  reg add %regpath%\AppExit\ /t REG_SZ /d "Ignore" /f
   ```
 
   
