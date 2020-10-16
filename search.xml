@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[windows 下以local system用户运行程序]]></title>
+    <url>%2F2020%2F10%2F16%2Fwindows%2Frun_with_local_system%2F</url>
+    <content type="text"><![CDATA[背景最近在使用 windows 服务器部署微服务的时候，启动的 java 程序经常会被无故杀死，后面经过多次验证，发现是账号被 sign off 导致以改账号启动的程序也一律被杀死了。这个时候就想到一个解决方法，把 java 程序注册成 windows 的服务运行就可以避免账号被注销而导致进程被杀死的问题了（如何注册成服务可以参照 nssm 注册 windows 服务）。 由于涉及到的服务比较多，而且前期已经定好使用脚本启停的方式进行运维了，因此单个注册成服务需要花费的时间比较多，也不太好运维管理，那么还可以通过什么方式解决呢？ 通过观察 windows 服务与我写的脚本启动服务方式的差异，不难发现，仅仅是启动账号不一样，服务是以 SYSTEM 用户启动的，而 SYSTEM 是最高权限的用户，因此宿主用户注销不影响以 SYSTEM 用户运行启动的程序。 那现在的问题就是该怎么以 SYSTEM 用户运行程序了。 借助 PSTools 工具包以 LocalSystem 用户运行程序 可以通过该链接进行工具的下载 https://docs.microsoft.com/en-us/sysinternals/downloads/pstools，里面也用工具的介绍。我们主要使用到工具包中的 PsExec.exe （如果是64位系统也可以使用 PsExec64.exe） 以 LocalSystem 账户运行 xxx.jar 1psexec.exe -s java -jar xxx.jar -s 就是以 system 身份运行 还有更多可选参数例如：-i 以交互模式运行，就是可以看到 java 的黑窗口；-d 执行命令后返回，不等待命令结束。更具体的参数可以通过命令 psexec /h 查看 如何在当前用户下查找 LocalSystem 账号运行程序的 pid ?由于使用脚本维护各服务 jar 包的启停，那么解决了怎么以 LocalSystem 身份运行程序了，但是以前的脚本中使用 jps -l | find &quot;xxx&quot; 来查找 xxx 程序的 pid 的操作已经不再适用了，那么应该怎么替换这段脚本代码呢？ 可以通过以下命令获取 pid 1wmic process where "commandline like '%xxx%' and name='java.exe'" get processid | findStr "[0-9]"]]></content>
+      <categories>
+        <category>windows</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+        <tag>local system</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[nssm 注册 windows 服务]]></title>
     <url>%2F2020%2F06%2F03%2Fwindows%2Fnssm_services%2F</url>
     <content type="text"><![CDATA[背景在 Windows 服务器中启用 jar 应用，通常使用的命令是 1java -jar xx.jar 但是这种情况启动了，我们需要保持命令提示框的打开状态，所以萌生了个想法，要是我们将启动bat脚本注册成windows 服务是不是就可以优雅的管理我们的 java 应用了。 NSSM 介绍NSSM(the Non-Sucking Service Manager)是Windows环境下一款免安装的服务管理软件，它可以将应用封装成服务，使之像windows服务可以设置自动启动等。并且可以监控程序运行状态，程序异常中断后自动启动，实现守护进程的功能。不仅支持图形界面操作，也完全支持命令行设置。 NSSM 下载与配置 进入下载界面，选择最新稳定版进行下载，https://nssm.cc/download 解压到特定的目录，例如 D:\nssm-2.24，文件夹里面又 win32 和 win64 两个文件夹，根据系统的位数选择合适的应用，这里采用 win64 配置环境变量 将 nssm 解压的路径配置到环境变量的 path 里面，如：D:\nssm-2.24\win64 验证安装 cmd 命令窗输入 nssm 将bat注册成服务 新建文件 start.bat 用来启动 jar 文件 1234@echo offrem 启动jarjava -jar xx.jar 新建文件 install.bat 用来注册服务 1234567891011121314151617181920212223@echo offrem 当前路径set currpath=%cd%rem 服务名，自己修改set servicename=xxxrem 服务描述set servicedesc=xxxxrem 启动路径，对应start.bat路径set binpath=%currpath%\start.batrem 启动参数set appParams=rem 注册服务nssm install %servicename% %binpath%rem 修改服务描述sc description %servicename% %servicedesc%rem 修改注册表set regpath=HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\%servicename%\Parameters\reg add %regpath% /v AppParameters /t REG_SZ /d "%appParams%" /freg add %regpath%\AppExit\ /t REG_SZ /d "Ignore" /f 双击 install.bat，即可]]></content>
