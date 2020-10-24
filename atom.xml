@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-10-24T07:17:23.608Z</updated>
+  <updated>2020-10-24T07:27:15.978Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2020/10/24/uml/class-diagram-relationships/"/>
     <id>http://yoursite.com/2020/10/24/uml/class-diagram-relationships/</id>
     <published>2020-10-24T06:41:39.000Z</published>
-    <updated>2020-10-24T07:17:23.608Z</updated>
+    <updated>2020-10-24T07:27:15.978Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>类关系涉及依赖、关联、聚合、组合和泛化这五种关系，耦合度依次递增。</p><p>关于耦合度，可以简单地理解为当一个类发生变更时，对其他类造成的影响程度，影响越小则耦合度越弱，影响越大耦合度越强。</p></blockquote><h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p><img src="/images/uml/class-diagram-relationships.svg" alt="类关系"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/k346k346/article/details/59582926" target="_blank" rel="noopener">认识 UML 类关系——依赖、关联、聚合、组合、泛化</a></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>类关系涉及依赖、关联、聚合、组合和泛化这五种关系，耦合度依次递增。</p><p>关于耦合度，可以简单地理解为当一个类发生变更时，对其他类造成的影响程度，影响越小则耦合度越弱，影响越大耦合度越强。</p></blockquote><h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p><img src="/images/uml/class-diagram-relationships.svg" alt="类关系"></p><p><a href="/images/uml/class-diagram-relationships.svg">查看原图</a></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/k346k346/article/details/59582926" target="_blank" rel="noopener">认识 UML 类关系——依赖、关联、聚合、组合、泛化</a></p>]]></content>
     
     <summary type="html">
     

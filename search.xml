@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[UML 类关系——依赖、关联、聚合、组合、泛化]]></title>
     <url>%2F2020%2F10%2F24%2Fuml%2Fclass-diagram-relationships%2F</url>
-    <content type="text"><![CDATA[类关系涉及依赖、关联、聚合、组合和泛化这五种关系，耦合度依次递增。 关于耦合度，可以简单地理解为当一个类发生变更时，对其他类造成的影响程度，影响越小则耦合度越弱，影响越大耦合度越强。 思维导图 参考认识 UML 类关系——依赖、关联、聚合、组合、泛化]]></content>
+    <content type="text"><![CDATA[类关系涉及依赖、关联、聚合、组合和泛化这五种关系，耦合度依次递增。 关于耦合度，可以简单地理解为当一个类发生变更时，对其他类造成的影响程度，影响越小则耦合度越弱，影响越大耦合度越强。 思维导图 查看原图 参考认识 UML 类关系——依赖、关联、聚合、组合、泛化]]></content>
       <categories>
         <category>UML</category>
       </categories>
