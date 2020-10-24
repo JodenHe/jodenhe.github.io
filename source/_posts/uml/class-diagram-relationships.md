@@ -17,6 +17,8 @@ description: "思维导图总结依赖、关联、聚合、组合、泛化之间
 
 ![类关系](/images/uml/class-diagram-relationships.svg)
 
+[查看原图](/images/uml/class-diagram-relationships.svg)
+
 ## 参考
 
 [认识 UML 类关系——依赖、关联、聚合、组合、泛化](https://blog.csdn.net/k346k346/article/details/59582926)
