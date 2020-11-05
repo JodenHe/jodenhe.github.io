@@ -1,0 +1,188 @@
+<svg ed:name="页面-1" height="513" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:ed="https://www.edrawsoft.cn/xml/2017/SVGExtensions/" width="1410" id="page0" viewBox="0 0 1410 473" xmlns="http://www.w3.org/2000/svg" ed:hspacing="30" ed:vspacing="30" preserveaspectradio="xMinYMin meet" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style type="text/css">
+g[ed\:togtopicid],g[ed\:hyperlink],g[ed\:comment],g[ed\:note] {cursor:pointer;}
+g[id] {-moz-user-select: none;-ms-user-select: none;user-select: none;}
+svg text::selection,svg tspan::selection{background-color: #4285f4;color: #ffffff;fill: #ffffff;}
+.st14 {fill:#303030;font-family:微软雅黑;font-size:12pt}
+.st13 {fill:#454545;font-family:微软雅黑;font-size:10pt}
+.st12 {fill:#ffffff;font-family:微软雅黑;font-size:14pt}
+.st15 {font-size:9pt}
+</style>
+    <defs></defs>
+    <rect height="513" width="1410" y="0" x="0" fill="#ffffff"></rect>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,-21.6C2.1,-21.6,-5.7,21.6,13.5,21.6" ed:parentid="179" id="141" ed:tosuperid="161" transform="matrix(1,0,0,1,431.5,113.88)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,-6.1C-1.3,-6.1,2.1,6.1,13.5,6.1" ed:parentid="179" id="142" ed:tosuperid="162" transform="matrix(1,0,0,1,431.5,98.38)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M0.4,-1.4C24.5,14,47.3,29.9,80.8,29.9" ed:parentid="101" id="143" ed:tosuperid="163" transform="matrix(1,0,0,1,202.25,293.88)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,-6.1C-1.3,-6.1,2.1,6.1,13.5,6.1" ed:parentid="163" id="144" ed:tosuperid="164" transform="matrix(1,0,0,1,452.5,329.88)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,40.5C4.8,40.5,-12.1,-40.5,13.5,-40.5" ed:parentid="164" id="145" ed:tosuperid="165" transform="matrix(1,0,0,1,729.5,295.5)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,15.5C0.8,15.5,-2.8,-15.5,13.5,-15.5" ed:parentid="165" id="146" ed:tosuperid="166" transform="matrix(1,0,0,1,956.5,239.5)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" ed:parentid="165" id="147" ed:tosuperid="167" transform="matrix(1,0,0,1,956.5,255)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,-15.5C0.8,-15.5,-2.8,15.5,13.5,15.5" ed:parentid="165" id="148" ed:tosuperid="168" transform="matrix(1,0,0,1,956.5,270.5)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,4.8C-1.6,4.8,2.8,-4.8,13.5,-4.8" ed:parentid="164" id="149" ed:tosuperid="169" transform="matrix(1,0,0,1,729.5,331.25)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,-4.8C-1.6,-4.8,2.8,4.8,13.5,4.8" ed:parentid="169" id="150" ed:tosuperid="170" transform="matrix(1,0,0,1,839.5,331.25)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,-20.3C1.8,-20.3,-5.1,20.3,13.5,20.3" ed:parentid="164" id="151" ed:tosuperid="171" transform="matrix(1,0,0,1,729.5,356.25)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,-4.8C-1.6,-4.8,2.8,4.8,13.5,4.8" ed:parentid="171" id="152" ed:tosuperid="172" transform="matrix(1,0,0,1,847.5,381.25)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,-40.5C4.8,-40.5,-12.1,40.5,13.5,40.5" ed:parentid="164" id="153" ed:tosuperid="173" transform="matrix(1,0,0,1,729.5,376.5)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" ed:parentid="173" id="154" ed:tosuperid="174" transform="matrix(1,0,0,1,838.5,417)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,-56C5.4,-56,-13.5,56,13.5,56" ed:parentid="164" id="155" ed:tosuperid="175" transform="matrix(1,0,0,1,729.5,392)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" ed:parentid="175" id="156" ed:tosuperid="176" transform="matrix(1,0,0,1,841.5,448)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,-77.6C5.4,-77.6,-13.5,77.6,13.5,77.6" ed:parentid="163" id="157" ed:tosuperid="177" transform="matrix(1,0,0,1,452.5,401.38)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" ed:parentid="177" id="158" ed:tosuperid="178" transform="matrix(1,0,0,1,523.5,479)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-32,57.4C2.1,8.6,10.8,-85.9,80.8,-85.9" ed:parentid="101" id="159" ed:tosuperid="179" transform="matrix(1,0,0,1,202.25,178.13)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,9.4C-0.5,9.4,0.3,-9.4,13.5,-9.4" ed:parentid="179" id="184" ed:tosuperid="183" transform="matrix(1,0,0,1,431.5,82.88)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,65.4C5.4,65.4,-13.5,-65.4,13.5,-65.4" ed:parentid="163" id="186" ed:tosuperid="185" transform="matrix(1,0,0,1,452.5,258.38)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,0.5C-2.7,0.5,5.4,-0.5,13.5,-0.5" ed:parentid="168" id="188" ed:tosuperid="187" transform="matrix(1,0,0,1,1116.5,285.5)" stroke-linecap="round" fill="none"></path>
+    <g ed:width="197" id="101" ed:height="57" transform="matrix(1,0,0,1,23,235.5)" ed:layout="map" ed:topictype="mainidea">
+        <path stroke="#435fbc" d="M4,0L193,0C195.7,0,197,1.3,197,4L197,53C197,55.7,195.7,57,193,57L4,57C1.3,57,0,55.7,0,53L0,4C0,1.3,1.3,0,4,0z" stroke-linejoin="round" stroke-width="3" fill="#435fbc"></path>
+        <text class="st12">
+            <tspan y="34.5" x="21" style="white-space:pre">锁方式实现隔离性</tspan>
+        </text>
+    </g>
+    <g ed:parentid="179" ed:width="215" id="161" ed:height="24.5" transform="matrix(1,0,0,1,445,111)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L215,24.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="16.1" x="8" style="white-space:pre">两阶段提交锁 Two-phase locking</tspan>
+        </text>
+    </g>
+    <g ed:parentid="179" ed:width="57" id="162" ed:height="24.5" transform="matrix(1,0,0,1,445,80)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L57,24.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="16.1" x="8" style="white-space:pre">读写锁</tspan>
+        </text>
+    </g>
+    <g ed:parentid="101" ed:width="156" id="163" ed:height="37" transform="matrix(1,0,0,1,283,305.25)" ed:layout="rightmap">
+        <path stroke="#ebecf3" d="M4,0L152,0C154.7,0,156,1.3,156,4L156,33C156,35.7,154.7,37,152,37L4,37C1.3,37,0,35.7,0,33L0,4C0,1.3,1.3,0,4,0z" stroke-linejoin="round" fill="#ebecf3"></path>
+        <text class="st14">
+            <tspan y="23.5" x="18" style="white-space:pre">多版本并发控制 </tspan>
+        </text>
+    </g>
+    <g ed:parentid="163" ed:width="250" id="164" ed:height="24.5" transform="matrix(1,0,0,1,466,311.5)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L250,24.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="16.1" x="8" style="white-space:pre">MYSQL innodb 对于 MVCC 的实现</tspan>
+        </text>
+        <g ed:hyperlink="[
+    {
+        &quot;desc&quot;: &quot;详细描述&quot;,
+        &quot;link&quot;: &quot;https://www.jianshu.com/p/f692d4f8a53e&quot;
+    }
+]
+">
+            <use transform="translate(224,4)" xlink:href="#imghyperlink"></use>
+        <rect fill="#cdcdff" x="0" y="0" height="16" width="16" fill-opacity="0.6" transform="translate(224,4)" style="display: none;"></rect></g>
+    </g>
+    <symbol id="imghyperlink">
+        <image height="16" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAEKADAAQAAAABAAAAEAAAAAA0VXHyAAACQElEQVQ4EWNgIAJ8//U/Ze2Jd5/XnXz3/+O3P5HIWliQOdjY777+rkqbea/1338GBhZmRoaVx94te/3pt6koH2sRNvUoYh++/W6PmnT3T8Wyx////fsPBg2rn/4P6bvz583nP5NRFKNzfv7+Xxk18c5vZM0QI/7/BxkSCjQEqKYGXR+cv/7Uu0+RE+/AbX7w6uf/bz+hzgCalDDt3v+DVz9+ZYLrQGf8Z/jPyACEjAwMZ+99Y4iYeIfh2ftfcFVAYTBAMQAY2qlrTr77shYY2m4GAjuBZvxJn/WAIWfeA4a+ODkGZXF2sKbmtc8YPn3/99dMjWcCzCAGYGhX58171PIfGto/fv1jiLMXvV6y+KGGlToP45x0Rbjmiw+//52RojBLlJ8lC2wAMLQ7suY8KpEXYWNui5QBK8yZ+4hh39WP/9sipe+sPv5BmYmJgQkUjV9//GOYmaqwQYiXJRCsEBbalcCogoEzd7/+t6i++j9j9n1YaK89fuvLn8PXP3//9uNvMVgjjFh/8t2nqIl3YXr/3weGNkjzsZufwWKg0D507fN3IIcTpgeZBqVEoK8RQIyfhWFxjjKDigQkwEB+ZGT8z4FQgcpi8jIS7AKFdvWKJ2AZLjYmuOamNc8Yvvz4989YmbuAkZHxO6pWJN77L797Iife/VO1HBEOTWue/g/uvfPn9cc/05GUYjDh0QgyJGfeo0JgwmFiYWJk+Pj9789ZqYrzgVGViaELl8D3X3+SQaF95Mbnb8DYacalDlkcACu8ZG0/oWGoAAAAAElFTkSuQmCC"></image>
+    </symbol>
+    <g ed:parentid="164" ed:width="200" id="165" ed:height="24.5" transform="matrix(1,0,0,1,743,230.5)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L200,24.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="16.1" x="8" style="white-space:pre">每一行数据保留两个系统版本号</tspan>
+        </text>
+    </g>
+    <g ed:parentid="165" ed:width="83" id="166" ed:height="24.5" transform="matrix(1,0,0,1,970,199.5)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L83,24.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="16.1" x="8" style="white-space:pre">更新版本号</tspan>
+        </text>
+    </g>
+    <g ed:parentid="165" ed:width="83" id="167" ed:height="24.5" transform="matrix(1,0,0,1,970,230.5)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L83,24.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="16.1" x="8" style="white-space:pre">删除版本号</tspan>
+        </text>
+    </g>
+    <g ed:parentid="165" ed:width="133" id="168" ed:height="24.5" transform="matrix(1,0,0,1,970,261.5)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L133,24.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="16.1" x="8" style="white-space:pre">版本号来源于事务id</tspan>
+        </text>
+    </g>
+    <g ed:parentid="164" ed:width="83" id="169" ed:height="24.5" transform="matrix(1,0,0,1,743,302)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L83,24.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="16.1" x="8" style="white-space:pre">select 操作</tspan>
+        </text>
+    </g>
+    <g ed:parentid="169" ed:width="514" id="170" ed:height="43.5" transform="matrix(1,0,0,1,853,292.5)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,43.5L514,43.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="16.1" x="8" style="white-space:pre">每次只会select具有比当前事务ID小的更新版本号的数据，而且删除版本号为空或者大</tspan>
+            <tspan y="35.1" x="8" style="white-space:pre">于当前事务ID</tspan>
+        </text>
+    </g>
+    <g ed:parentid="164" ed:width="91" id="171" ed:height="24.5" transform="matrix(1,0,0,1,743,352)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L91,24.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="16.1" x="8" style="white-space:pre">update 操作</tspan>
+        </text>
+    </g>
+    <g ed:parentid="171" ed:width="514" id="172" ed:height="43.5" transform="matrix(1,0,0,1,861,342.5)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,43.5L514,43.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="16.1" x="8" style="white-space:pre">复制出一份副本，同事在更新版本号写入当前事务ID，并且把当前的事务ID写入之前的</tspan>
+            <tspan y="35.1" x="8" style="white-space:pre">删除版本号中</tspan>
+        </text>
+    </g>
+    <g ed:parentid="164" ed:width="82" id="173" ed:height="24.5" transform="matrix(1,0,0,1,743,392.5)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L82,24.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="16.1" x="8" style="white-space:pre">insert 操作</tspan>
+        </text>
+    </g>
+    <g ed:parentid="173" ed:width="279" id="174" ed:height="24.5" transform="matrix(1,0,0,1,852,392.5)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L279,24.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="16.1" x="8" style="white-space:pre">写入新行，同时把当前事务ID写入更新版本号</tspan>
+        </text>
+    </g>
+    <g ed:parentid="164" ed:width="85" id="175" ed:height="24.5" transform="matrix(1,0,0,1,743,423.5)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L85,24.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="16.1" x="8" style="white-space:pre">delete 操作</tspan>
+        </text>
+    </g>
+    <g ed:parentid="175" ed:width="201" id="176" ed:height="24.5" transform="matrix(1,0,0,1,855,423.5)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L201,24.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="16.1" x="8" style="white-space:pre">在删除版本号中写入当前事务ID</tspan>
+        </text>
+    </g>
+    <g ed:parentid="163" ed:width="44" id="177" ed:height="24.5" transform="matrix(1,0,0,1,466,454.5)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L44,24.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="16.1" x="8" style="white-space:pre">优势</tspan>
+        </text>
+    </g>
+    <g ed:parentid="177" ed:width="148" id="178" ed:height="24.5" transform="matrix(1,0,0,1,537,454.5)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L148,24.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="16.1" x="8" style="white-space:pre">读不加锁，读写不冲突</tspan>
+        </text>
+    </g>
+    <g ed:parentid="101" ed:width="135" id="179" ed:height="37" transform="matrix(1,0,0,1,283,73.75)" ed:layout="rightmap">
+        <path stroke="#ebecf3" d="M4,0L131,0C133.7,0,135,1.3,135,4L135,33C135,35.7,133.7,37,131,37L4,37C1.3,37,0,35.7,0,33L0,4C0,1.3,1.3,0,4,0z" stroke-linejoin="round" fill="#ebecf3"></path>
+        <text class="st14">
+            <tspan y="23.5" x="18" style="white-space:pre">基于锁的并发</tspan>
+        </text>
+    </g>
+    <g ed:parentid="179" ed:width="222" id="183" ed:height="24.5" transform="matrix(1,0,0,1,445,49)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L222,24.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="16.1" x="8" style="white-space:pre">Lock-Based Concurrency Control</tspan>
+        </text>
+    </g>
+    <g ed:parentid="163" ed:width="281" id="185" ed:height="24.5" transform="matrix(1,0,0,1,466,168.5)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L281,24.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="16.1" x="8" style="white-space:pre">MVCC(Multi Version Concurrency Control)</tspan>
+        </text>
+    </g>
+    <g ed:parentid="168" ed:width="259" id="187" ed:height="22.5" transform="matrix(1,0,0,1,1130,262.5)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,22.5L259,22.5" fill="none"></path>
+        <text class="st13">
+            <tspan y="14.1" class="st15" x="8" style="white-space:pre">事务ID是随时间推移而增长，而且不可重复的</tspan>
+        </text>
+    </g>
+    
+<g transform="translate(690.5,331.5)" hyperlink="" ed:linkid="page0,164" style="display: none;"><a xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.jianshu.com/p/f692d4f8a53e" target="_blank"><rect width="249.359375" height="33" stroke="#999999" fill="white" y="0"></rect><text x="5" y="12" style="font-size: 12px; font-weight: bold;">详细描述</text><text y="28" x="5" style="font-size: 12px;">https://www.jianshu.com/p/f692d4f8a53e</text></a></g></svg>
