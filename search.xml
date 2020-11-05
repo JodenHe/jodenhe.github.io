@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[MySQL 事务隔离级别]]></title>
+    <url>%2F2020%2F11%2F05%2Fdatabase%2Fmysql%2Ftransaction-isolation%2F</url>
+    <content type="text"><![CDATA[事务基本要素 事务并发几种问题 脏读 脏读是指在一个事务处理过程里读取了另一个未提交的事务中的数据。 当一个事务正在多次修改某个数据，而在这个事务中这多次的修改都还未提交，这时一个并发的事务来访问该数据，就会造成两个事务得到的数据不一致。例如：用户A向用户B转账100元，对应SQL命令如下 12update account set money=money + 100 where name='B'; (此时A通知B)update account set money=money - 100 where name='A'; 当只执行第一条 SQL 时，A通知B查看账户，B发现确实钱已到账（此时即发生了脏读），而之后无论第二条SQL是否执行，只要该事务不提交，则所有操作都将回滚，那么当B以后再次查看账户时就会发现钱其实并没有转。 不可重复读 不可重复读是指在对于数据库中的某个数据，一个事务范围内多次查询却返回了不同的数据值，这是由于在查询间隔，被另一个事务修改并提交了。 例如事务T1在读取某一数据，而事务T2立马修改了这个数据并且提交事务给数据库，事务T1再次读取该数据就得到了不同的结果，发送了不可重复读。 不可重复读和脏读的区别是，脏读是某一事务读取了另一个事务未提交的脏数据，而不可重复读则是读取了前一事务提交的数据。 在某些情况下，不可重复读并不是问题，比如我们多次查询某个数据当然以最后查询得到的结果为主。但在另一些情况下就有可能发生问题，例如对于同一个数据A和B依次查询就可能不同，A和B就可能打起来了…… 幻读 幻读是事务非独立执行时发生的一种现象。例如事务T1对一个表中所有的行的某个数据项做了从“1”修改为“2”的操作，这时事务T2又对这个表中插入了一行数据项，而这个数据项的数值还是为“1”并且提交给数据库。而操作事务T1的用户如果再查看刚刚修改的数据，会发现还有一行没有修改，其实这行是从事务T2中添加的，就好像产生幻觉一样，这就是发生了幻读。 幻读和不可重复读都是读取了另一条已经提交的事务（这点就脏读不同），所不同的是不可重复读查询的都是同一个数据项，而幻读针对的是一批数据整体（比如数据的个数）。 小结 不可重复读的和幻读很容易混淆，不可重复读侧重于修改，幻读侧重于新增或删除。解决不可重复读的问题只需锁住满足条件的行，解决幻读需要锁表 隔离级别 锁方式实现隔离性 查看原图]]></content>
+      <categories>
+        <category>database</category>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+        <tag>transaction</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[UML 类关系——依赖、关联、聚合、组合、泛化]]></title>
     <url>%2F2020%2F10%2F24%2Fuml%2Fclass-diagram-relationships%2F</url>
     <content type="text"><![CDATA[类关系涉及依赖、关联、聚合、组合和泛化这五种关系，耦合度依次递增。 关于耦合度，可以简单地理解为当一个类发生变更时，对其他类造成的影响程度，影响越小则耦合度越弱，影响越大耦合度越强。 思维导图 查看原图 参考认识 UML 类关系——依赖、关联、聚合、组合、泛化]]></content>
@@ -14,7 +27,7 @@
   <entry>
     <title><![CDATA[windows 下以local system用户运行程序]]></title>
     <url>%2F2020%2F10%2F16%2Fwindows%2Frun_with_local_system%2F</url>
-    <content type="text"><![CDATA[背景最近在使用 windows 服务器部署微服务的时候，启动的 java 程序经常会被无故杀死，后面经过多次验证，发现是账号被 sign off 导致以改账号启动的程序也一律被杀死了。这个时候就想到一个解决方法，把 java 程序注册成 windows 的服务运行就可以避免账号被注销而导致进程被杀死的问题了（如何注册成服务可以参照 nssm 注册 windows 服务）。 由于涉及到的服务比较多，而且前期已经定好使用脚本启停的方式进行运维了，因此单个注册成服务需要花费的时间比较多，也不太好运维管理，那么还可以通过什么方式解决呢？ 通过观察 windows 服务与我写的脚本启动服务方式的差异，不难发现，仅仅是启动账号不一样，服务是以 SYSTEM 用户启动的，而 SYSTEM 是最高权限的用户，因此宿主用户注销不影响以 SYSTEM 用户运行启动的程序。 那现在的问题就是该怎么以 SYSTEM 用户运行程序了。 借助 PSTools 工具包以 LocalSystem 用户运行程序 可以通过该链接进行工具的下载 https://docs.microsoft.com/en-us/sysinternals/downloads/pstools，里面也用工具的介绍。我们主要使用到工具包中的 PsExec.exe （如果是64位系统也可以使用 PsExec64.exe） 以 LocalSystem 账户运行 xxx.jar 1psexec.exe -s java -jar xxx.jar -s 就是以 system 身份运行 还有更多可选参数例如：-i 以交互模式运行，就是可以看到 java 的黑窗口；-d 执行命令后返回，不等待命令结束。更具体的参数可以通过命令 psexec /h 查看 如何在当前用户下查找 LocalSystem 账号运行程序的 pid ?由于使用脚本维护各服务 jar 包的启停，那么解决了怎么以 LocalSystem 身份运行程序了，但是以前的脚本中使用 jps -l | find &quot;xxx&quot; 来查找 xxx 程序的 pid 的操作已经不再适用了，那么应该怎么替换这段脚本代码呢？ 可以通过以下命令获取 pid 1wmic process where "commandline like '%xxx%' and name='java.exe'" get processid | findStr "[0-9]"]]></content>
+    <content type="text"><![CDATA[背景最近在使用 windows 服务器部署微服务的时候，启动的 java 程序经常会被无故杀死，后面经过多次验证，发现是账号被 sign off 导致以改账号启动的程序也一律被杀死了。这个时候就想到一个解决方法，把 java 程序注册成 windows 的服务运行就可以避免账号被注销而导致进程被杀死的问题了（如何注册成服务可以参照 nssm 注册 windows 服务）。 由于涉及到的服务比较多，而且前期已经定好使用脚本启停的方式进行运维了，因此单个注册成服务需要花费的时间比较多，也不太好运维管理，那么还可以通过什么方式解决呢？ 通过观察 windows 服务与我写的脚本启动服务方式的差异，不难发现，仅仅是启动账号不一样，服务是以 SYSTEM 用户启动的，而 SYSTEM 是最高权限的用户，因此宿主用户注销不影响以 SYSTEM 用户运行启动的程序。 那现在的问题就是该怎么以 SYSTEM 用户运行程序了。 借助 PSTools 工具包以 LocalSystem 用户运行程序 可以通过该链接进行工具的下载 https://docs.microsoft.com/en-us/sysinternals/downloads/pstools，里面也用工具的介绍。我们主要使用到工具包中的 PsExec.exe （如果是64位系统也可以使用 PsExec64.exe） 以 LocalSystem 账户运行 xxx.jar 1psexec.exe -s java -jar xxx.jar -s 就是以 system 身份运行 还有更多可选参数例如：-i 以交互模式运行，就是可以看到 java 的黑窗口；-d 执行命令后返回，不等待命令结束。更具体的参数可以通过命令 psexec /h 查看 所有的pstool第一次运行时都会弹框。可以用 –accepteula 这个参数 如何在当前用户下查找 LocalSystem 账号运行程序的 pid ?由于使用脚本维护各服务 jar 包的启停，那么解决了怎么以 LocalSystem 身份运行程序了，但是以前的脚本中使用 jps -l | find &quot;xxx&quot; 来查找 xxx 程序的 pid 的操作已经不再适用了，那么应该怎么替换这段脚本代码呢？ 可以通过以下命令获取 pid 1wmic process where "commandline like '%xxx%' and name='java.exe'" get processid | findStr "[0-9]"]]></content>
       <categories>
         <category>windows</category>
       </categories>

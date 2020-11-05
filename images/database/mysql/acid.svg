@@ -1,0 +1,90 @@
+<svg ed:name="页面-1" height="385" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:ed="https://www.edrawsoft.cn/xml/2017/SVGExtensions/" width="1011" id="page0" viewBox="0 0 1011 345" xmlns="http://www.w3.org/2000/svg" ed:hspacing="30" ed:vspacing="30" preserveaspectradio="xMinYMin meet" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style type="text/css">
+g[ed\:togtopicid],g[ed\:hyperlink],g[ed\:comment],g[ed\:note] {cursor:pointer;}
+g[id] {-moz-user-select: none;-ms-user-select: none;user-select: none;}
+svg text::selection,svg tspan::selection{background-color: #4285f4;color: #ffffff;fill: #ffffff;}
+.st8 {fill:#303030;font-family:微软雅黑;font-size:12pt}
+.st9 {fill:#454545;font-family:微软雅黑;font-size:10pt}
+.st7 {fill:#ffffff;font-family:微软雅黑;font-size:14pt}
+</style>
+    <defs></defs>
+    <rect height="385" width="1011" y="0" x="0" fill="#ffffff"></rect>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,-6.1C-1.3,-6.1,2.1,6.1,13.5,6.1" ed:parentid="102" id="112" ed:tosuperid="107" transform="matrix(1,0,0,1,469.5,73.63)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,1.6C-2.3,1.6,4.5,-1.6,13.5,-1.6" ed:parentid="103" id="113" ed:tosuperid="109" transform="matrix(1,0,0,1,487.5,145.13)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,-13.9C0.5,-13.9,-2,13.9,13.5,13.9" ed:parentid="103" id="114" ed:tosuperid="108" transform="matrix(1,0,0,1,487.5,160.63)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,6.4C-1.2,6.4,1.9,-6.4,13.5,-6.4" ed:parentid="104" id="115" ed:tosuperid="106" transform="matrix(1,0,0,1,462.5,238.38)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,-6.1C-1.3,-6.1,2.1,6.1,13.5,6.1" ed:parentid="111" id="116" ed:tosuperid="110" transform="matrix(1,0,0,1,470.5,339.63)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-13.5,-18.6C1.5,-18.6,-4.3,18.6,13.5,18.6" ed:parentid="104" id="117" ed:tosuperid="105" transform="matrix(1,0,0,1,462.5,263.38)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-27.9,-38C5.9,1.1,23.6,66.5,84.3,66.5" ed:parentid="101" id="118" ed:tosuperid="111" transform="matrix(1,0,0,1,212.75,267)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M18.4,6.4C38.5,14.9,59,22.1,84.3,22.1" ed:parentid="101" id="119" ed:tosuperid="104" transform="matrix(1,0,0,1,212.75,222.63)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M6.2,-1.6C29.8,-14.5,52.9,-26.9,84.3,-26.9" ed:parentid="101" id="120" ed:tosuperid="103" transform="matrix(1,0,0,1,212.75,173.63)" stroke-linecap="round" fill="none"></path>
+    <path stroke="#696969" stroke-linejoin="round" d="M-27.9,38C5.9,-1.1,23.6,-66.5,84.3,-66.5" ed:parentid="101" id="121" ed:tosuperid="102" transform="matrix(1,0,0,1,212.75,134)" stroke-linecap="round" fill="none"></path>
+    <g ed:width="211" id="101" ed:height="57" transform="matrix(1,0,0,1,23,172)" ed:layout="map" ed:topictype="mainidea">
+        <path stroke="#435fbc" d="M4,0L207,0C209.7,0,211,1.3,211,4L211,53C211,55.7,209.7,57,207,57L4,57C1.3,57,0,55.7,0,53L0,4C0,1.3,1.3,0,4,0z" stroke-linejoin="round" stroke-width="3" fill="#435fbc"></path>
+        <text class="st7">
+            <tspan y="34.5" x="21" style="white-space:pre">事务基本要素 ACID</tspan>
+        </text>
+    </g>
+    <g ed:parentid="101" ed:width="159" id="102" ed:height="37" transform="matrix(1,0,0,1,297,49)" ed:layout="rightmap">
+        <path stroke="#ebecf3" d="M4,0L155,0C157.7,0,159,1.3,159,4L159,33C159,35.7,157.7,37,155,37L4,37C1.3,37,0,35.7,0,33L0,4C0,1.3,1.3,0,4,0z" stroke-linejoin="round" fill="#ebecf3"></path>
+        <text class="st8">
+            <tspan y="23.5" x="18" style="white-space:pre">原子性Atomicity</tspan>
+        </text>
+    </g>
+    <g ed:parentid="101" ed:width="177" id="103" ed:height="37" transform="matrix(1,0,0,1,297,128.25)" ed:layout="rightmap">
+        <path stroke="#ebecf3" d="M4,0L173,0C175.7,0,177,1.3,177,4L177,33C177,35.7,175.7,37,173,37L4,37C1.3,37,0,35.7,0,33L0,4C0,1.3,1.3,0,4,0z" stroke-linejoin="round" fill="#ebecf3"></path>
+        <text class="st8">
+            <tspan y="23.5" x="18" style="white-space:pre">一致性Consistency</tspan>
+        </text>
+    </g>
+    <g ed:parentid="101" ed:width="152" id="104" ed:height="37" transform="matrix(1,0,0,1,297,226.25)" ed:layout="rightmap">
+        <path stroke="#ebecf3" d="M4,0L148,0C150.7,0,152,1.3,152,4L152,33C152,35.7,150.7,37,148,37L4,37C1.3,37,0,35.7,0,33L0,4C0,1.3,1.3,0,4,0z" stroke-linejoin="round" fill="#ebecf3"></path>
+        <text class="st8">
+            <tspan y="23.5" x="18" style="white-space:pre">隔离性Isolation</tspan>
+        </text>
+    </g>
+    <g ed:parentid="104" ed:width="514" id="105" ed:height="43.5" transform="matrix(1,0,0,1,476,238.5)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,43.5L514,43.5" fill="none"></path>
+        <text class="st9">
+            <tspan y="16.1" x="8" style="white-space:pre">不同事务在提交的时候，最终呈现的效果是串行的，一个事务的执行必然会阻塞其他事</tspan>
+            <tspan y="35.1" x="8" style="white-space:pre">务的执行</tspan>
+        </text>
+    </g>
+    <g ed:parentid="104" ed:width="213" id="106" ed:height="24.5" transform="matrix(1,0,0,1,476,207.5)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L213,24.5" fill="none"></path>
+        <text class="st9">
+            <tspan y="16.1" x="8" style="white-space:pre">不同事务是互相隔离，互不干扰的</tspan>
+        </text>
+    </g>
+    <g ed:parentid="102" ed:width="369" id="107" ed:height="24.5" transform="matrix(1,0,0,1,483,55.25)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L369,24.5" fill="none"></path>
+        <text class="st9">
+            <tspan y="16.1" x="8" style="white-space:pre">事务开始后，所有操作要么全成功要么全失败，看作一个整体</tspan>
+        </text>
+    </g>
+    <g ed:parentid="103" ed:width="260" id="108" ed:height="24.5" transform="matrix(1,0,0,1,501,150)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L260,24.5" fill="none"></path>
+        <text class="st9">
+            <tspan y="16.1" x="8" style="white-space:pre">比如A向B转账，不可能A扣了钱而B没收到</tspan>
+        </text>
+    </g>
+    <g ed:parentid="103" ed:width="330" id="109" ed:height="24.5" transform="matrix(1,0,0,1,501,119)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L330,24.5" fill="none"></path>
+        <text class="st9">
+            <tspan y="16.1" x="8" style="white-space:pre">事务开始前和结束后，数据库的完整性约束没有被破坏</tspan>
+        </text>
+    </g>
+    <g ed:parentid="111" ed:width="421" id="110" ed:height="24.5" transform="matrix(1,0,0,1,484,321.25)" ed:layout="rightmap">
+        <path stroke="#696969" stroke-linejoin="round" d="M0,24.5L421,24.5" fill="none"></path>
+        <text class="st9">
+            <tspan y="16.1" x="8" style="white-space:pre">事务完成后，事务对数据库的所有更新都将被保存到数据库，不能回滚</tspan>
+        </text>
+    </g>
+    <g ed:parentid="101" ed:width="160" id="111" ed:height="37" transform="matrix(1,0,0,1,297,315)" ed:layout="rightmap">
+        <path stroke="#ebecf3" d="M4,0L156,0C158.7,0,160,1.3,160,4L160,33C160,35.7,158.7,37,156,37L4,37C1.3,37,0,35.7,0,33L0,4C0,1.3,1.3,0,4,0z" stroke-linejoin="round" fill="#ebecf3"></path>
+        <text class="st8">
+            <tspan y="23.5" x="18" style="white-space:pre">持久性Durability</tspan>
+        </text>
+    </g>
+    
+</svg>

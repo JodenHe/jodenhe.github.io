@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="麻瓜吃菜鸟">
 <meta property="og:description" content="在windows服务器下如何以local system账户运行指定程序？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-10-16T14:27:26.318Z">
+<meta property="og:updated_time" content="2020-10-26T06:31:50.046Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windows 下以local system用户运行程序">
 <meta name="twitter:description" content="在windows服务器下如何以local system账户运行指定程序？">
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  588
+                  610
                 </span>
               
 
@@ -452,6 +452,9 @@
 <figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psexec.exe -s java -jar xxx.jar</span><br></pre></td></tr></table></figure>
 <p><code>-s</code> 就是以 system 身份运行</p>
 <p>还有更多可选参数例如：<code>-i</code> 以交互模式运行，就是可以看到 java 的黑窗口；<code>-d</code> 执行命令后返回，不等待命令结束。更具体的参数可以通过命令 <code>psexec /h</code> 查看</p>
+<blockquote>
+<p>所有的pstool第一次运行时都会弹框。可以用 <code>–accepteula</code> 这个参数</p>
+</blockquote>
 <h3 id="如何在当前用户下查找-LocalSystem-账号运行程序的-pid"><a href="#如何在当前用户下查找-LocalSystem-账号运行程序的-pid" class="headerlink" title="如何在当前用户下查找 LocalSystem 账号运行程序的 pid ?"></a>如何在当前用户下查找 <code>LocalSystem</code> 账号运行程序的 <code>pid</code> ?</h3><p>由于使用脚本维护各服务 jar 包的启停，那么解决了怎么以 <code>LocalSystem</code> 身份运行程序了，但是以前的脚本中使用 <code>jps -l | find &quot;xxx&quot;</code> 来查找 <code>xxx</code> 程序的 <code>pid</code> 的操作已经不再适用了，那么应该怎么替换这段脚本代码呢？</p>
 <p>可以通过以下命令获取 <code>pid</code></p>
 <figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wmic process where "commandline like '<span class="variable">%xxx%</span>' and name='java.exe'" get processid | <span class="built_in">findStr</span> "[<span class="number">0</span>-<span class="number">9</span>]"</span><br></pre></td></tr></table></figure>
@@ -586,7 +589,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -597,7 +600,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -608,7 +611,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -722,7 +725,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">13.9k</span>
+    <span title="Site words total count">14.7k</span>
   
 </div>
 
