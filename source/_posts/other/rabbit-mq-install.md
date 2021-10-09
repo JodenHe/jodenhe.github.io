@@ -96,7 +96,7 @@ Eshell V12.1  (abort with ^G)
 
 ## 安装 Rabbit MQ
 
-Rabbit MQ 的安装直接将下载的安装包解压到相应的目录下即可，官网下载地址: https://www.rabbitmq.com/install-generic-unix.html。
+Rabbit MQ 的安装直接将下载的安装包解压到相应的目录下即可，官网下载地址: https://www.rabbitmq.com/install-generic-unix.html
 
 ![rabbit mq 下载](/images/other/20211009152620.png)
 
