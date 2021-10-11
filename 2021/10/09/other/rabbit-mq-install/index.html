@@ -98,7 +98,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/other/20211009144350.png">
 <meta property="og:image" content="http://yoursite.com/images/other/20211009152620.png">
-<meta property="og:updated_time" content="2021-10-09T09:59:41.697Z">
+<meta property="og:updated_time" content="2021-10-09T10:19:11.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Rabbit MQ 安装">
 <meta name="twitter:description" content="记录 centos7 下安装 Rabbit MQ">
@@ -465,7 +465,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[joden@localhost otp_src_24.1]$ sudo vim /etc/profile</span><br><span class="line">[joden@localhost otp_src_24.1]$ source /etc/profile</span><br></pre></td></tr></table></figure>
 <p>可以输入 <code>erl</code> 命令来验证 Erlang 是否安装成功，如果出现类似以下的提示即表示安装成功:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[joden@localhost otp_src_24.1]$ erl</span><br><span class="line">Erlang/OTP 24 [erts-12.1] [source] [64-bit] [smp:3:3] [ds:3:3:10] [async-threads:1]</span><br><span class="line"></span><br><span class="line">Eshell V12.1  (abort with ^G)</span><br><span class="line"><span class="meta">1&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
-<h2 id="安装-Rabbit-MQ"><a href="#安装-Rabbit-MQ" class="headerlink" title="安装 Rabbit MQ"></a>安装 Rabbit MQ</h2><p>Rabbit MQ 的安装直接将下载的安装包解压到相应的目录下即可，官网下载地址: <a href="https://www.rabbitmq.com/install-generic-unix.html。" target="_blank" rel="noopener">https://www.rabbitmq.com/install-generic-unix.html。</a></p>
+<h2 id="安装-Rabbit-MQ"><a href="#安装-Rabbit-MQ" class="headerlink" title="安装 Rabbit MQ"></a>安装 Rabbit MQ</h2><p>Rabbit MQ 的安装直接将下载的安装包解压到相应的目录下即可，官网下载地址: <a href="https://www.rabbitmq.com/install-generic-unix.html" target="_blank" rel="noopener">https://www.rabbitmq.com/install-generic-unix.html</a></p>
 <p><img src="/images/other/20211009152620.png" alt="rabbit mq 下载"></p>
 <p>这里选择将 Rabbit MQ 安装到与 Erlang 同一个目录 (/opt) 下面:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[joden@localhost workspace]$ tar -xvf rabbitmq-server-generic-unix-3.9.7.tar.xz</span><br><span class="line">[joden@localhost workspace]$ sudo mv rabbitmq_server-3.9.7/ /opt/</span><br><span class="line">[joden@localhost workspace]$ cd /opt/</span><br><span class="line">[joden@localhost opt]$ sudo mv rabbitmq_server-3.9.7/ rabbitmq</span><br></pre></td></tr></table></figure>
