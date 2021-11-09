@@ -15,6 +15,18 @@ Rabbit MQ 是由 Erlang 语言编写的，也正因如此，在安装 Rabbit MQ 
 
 ## 安装 Erlang
 
+### 安装前置依赖
+
+> 在安装 erlang 之前先安装下依赖文件(这一步不要忘掉了， 不然后面./configure的时候要报错)
+
+```bash
+[joden@localhost workspace]$ sudo yum install gcc glibc-devel make ncurses-devel openssl-devel xmlto
+```
+
+
+
+### 下载源码包
+
 进入 Erlang 下载网址，下载源码包
 
 ![Erlang 源码包下载](/images/other/20211009144350.png)
@@ -27,37 +39,8 @@ Rabbit MQ 是由 Erlang 语言编写的，也正因如此，在安装 Rabbit MQ 
 [joden@localhost workspace]$ tar -zxvf otp_src_24.1.tar.gz
 [joden@localhost workspace]$ cd otp_src_24.1
 [joden@localhost otp_src_24.1]$ ./configure --prefix=/opt/erlang
-=== Running configure in /home/joden/workspace/otp_src_24.1/erts ===
-./configure '--prefix=/opt/erlang' --disable-option-checking --cache-file=/dev/null --srcdir="/home/joden/workspace/otp_src_24.1/erts"
-checking build system type... x86_64-pc-linux-gnu
-checking host system type... x86_64-pc-linux-gnu
-checking for gcc... no
-checking for cc... no
-checking for cl.exe... no
-configure: error: in `/home/joden/workspace/otp_src_24.1/erts':
-configure: error: no acceptable C compiler found in $PATH
-See `config.log' for more details
-ERROR: /home/joden/workspace/otp_src_24.1/erts/configure failed!
-已杀死
 [joden@localhost otp_src_24.1]$
 ```
-
-按提示报错没有GCC编译器环境）
-
-因此先来安装一下 GCC
-
-```shell
-[joden@localhost otp_src_24.1]$ sudo yum install gcc
-
-```
-
-重新执行命令 `./configure --prefix=/opt/erlang`，依然报错 `configure: error: No curses library functions found` 那么此时需要安装 ncurses，安装步骤 (遇到提示输入y 后直接回车即可) 如下:
-
-```shell
-[joden@localhost otp_src_24.1]$ sudo yum install ncurses-devel
-```
-
-再次执行命令 `./configure --prefix=/opt/erlang` 成功！！
 
 ### 编译及安装
 
