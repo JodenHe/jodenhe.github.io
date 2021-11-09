@@ -98,7 +98,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/other/20211009144350.png">
 <meta property="og:image" content="http://yoursite.com/images/other/20211009152620.png">
-<meta property="og:updated_time" content="2021-10-09T10:19:11.742Z">
+<meta property="og:updated_time" content="2021-11-09T16:00:26.265Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Rabbit MQ 安装">
 <meta name="twitter:description" content="记录 centos7 下安装 Rabbit MQ">
@@ -403,7 +403,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  711
+                  564
                 </span>
               
 
@@ -445,16 +445,14 @@
 
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Rabbit MQ 是由 Erlang 语言编写的，也正因如此，在安装 Rabbit MQ 之前需要安装 Erlang 。建议采用较新版的 Erlang，这样可以获得较多更新和改进，可以到官网 (<a href="https://www.erlang.org/downloads" target="_blank" rel="noopener">https://www.erlang.org/downloads</a>) 下载</p>
-<h2 id="安装-Erlang"><a href="#安装-Erlang" class="headerlink" title="安装 Erlang"></a>安装 Erlang</h2><p>进入 Erlang 下载网址，下载源码包</p>
+<h2 id="安装-Erlang"><a href="#安装-Erlang" class="headerlink" title="安装 Erlang"></a>安装 Erlang</h2><h3 id="安装前置依赖"><a href="#安装前置依赖" class="headerlink" title="安装前置依赖"></a>安装前置依赖</h3><blockquote>
+<p>在安装 erlang 之前先安装下依赖文件(这一步不要忘掉了， 不然后面./configure的时候要报错)</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[joden@localhost workspace]$ sudo yum install gcc glibc-devel make ncurses-devel openssl-devel xmlto</span><br></pre></td></tr></table></figure>
+<h3 id="下载源码包"><a href="#下载源码包" class="headerlink" title="下载源码包"></a>下载源码包</h3><p>进入 Erlang 下载网址，下载源码包</p>
 <p><img src="/images/other/20211009144350.png" alt="Erlang 源码包下载"></p>
 <h3 id="解压安装包，并配置安装目录"><a href="#解压安装包，并配置安装目录" class="headerlink" title="解压安装包，并配置安装目录"></a>解压安装包，并配置安装目录</h3><p>这里我们安装到 <code>/opt/erlang</code> 目录下:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[joden@localhost workspace]$ tar -zxvf otp_src_24.1.tar.gz</span><br><span class="line">[joden@localhost workspace]$ cd otp_src_24.1</span><br><span class="line">[joden@localhost otp_src_24.1]$ ./configure --prefix=/opt/erlang</span><br><span class="line">=== Running configure in /home/joden/workspace/otp_src_24.1/erts ===</span><br><span class="line">./configure '--prefix=/opt/erlang' --disable-option-checking --cache-file=/dev/null --srcdir="/home/joden/workspace/otp_src_24.1/erts"</span><br><span class="line">checking build system type... x86_64-pc-linux-gnu</span><br><span class="line">checking host system type... x86_64-pc-linux-gnu</span><br><span class="line">checking for gcc... no</span><br><span class="line">checking for cc... no</span><br><span class="line">checking for cl.exe... no</span><br><span class="line">configure: error: in `/home/joden/workspace/otp_src_24.1/erts':</span><br><span class="line">configure: error: no acceptable C compiler found in $PATH</span><br><span class="line">See `config.log' for more details</span><br><span class="line">ERROR: /home/joden/workspace/otp_src_24.1/erts/configure failed!</span><br><span class="line">已杀死</span><br><span class="line">[joden@localhost otp_src_24.1]$</span><br></pre></td></tr></table></figure>
-<p>按提示报错没有GCC编译器环境）</p>
-<p>因此先来安装一下 GCC</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[joden@localhost otp_src_24.1]$ sudo yum install gcc</span><br></pre></td></tr></table></figure>
-<p>重新执行命令 <code>./configure --prefix=/opt/erlang</code>，依然报错 <code>configure: error: No curses library functions found</code> 那么此时需要安装 ncurses，安装步骤 (遇到提示输入y 后直接回车即可) 如下:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[joden@localhost otp_src_24.1]$ sudo yum install ncurses-devel</span><br></pre></td></tr></table></figure>
-<p>再次执行命令 <code>./configure --prefix=/opt/erlang</code> 成功！！</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[joden@localhost workspace]$ tar -zxvf otp_src_24.1.tar.gz</span><br><span class="line">[joden@localhost workspace]$ cd otp_src_24.1</span><br><span class="line">[joden@localhost otp_src_24.1]$ ./configure --prefix=/opt/erlang</span><br><span class="line">[joden@localhost otp_src_24.1]$</span><br></pre></td></tr></table></figure>
 <h3 id="编译及安装"><a href="#编译及安装" class="headerlink" title="编译及安装"></a>编译及安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[joden@localhost otp_src_24.1]$ make</span><br><span class="line">[joden@localhost otp_src_24.1]$ sudo make install</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>如果在安装的过程中出现类似”No xxx found” 的提示，可根据提示信息安装相应的包，然后重新执行，直到提示安装完毕为止。</p>
@@ -547,7 +545,7 @@
         <div id="gitment-container" style="display:none"></div>
       
 
-
+  
 
 
 
@@ -701,7 +699,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Erlang"><span class="nav-number">2.</span> <span class="nav-text">安装 Erlang</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解压安装包，并配置安装目录"><span class="nav-number">2.1.</span> <span class="nav-text">解压安装包，并配置安装目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译及安装"><span class="nav-number">2.2.</span> <span class="nav-text">编译及安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置环境变量"><span class="nav-number">2.3.</span> <span class="nav-text">配置环境变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Rabbit-MQ"><span class="nav-number">3.</span> <span class="nav-text">安装 Rabbit MQ</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Erlang"><span class="nav-number">2.</span> <span class="nav-text">安装 Erlang</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装前置依赖"><span class="nav-number">2.1.</span> <span class="nav-text">安装前置依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载源码包"><span class="nav-number">2.2.</span> <span class="nav-text">下载源码包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压安装包，并配置安装目录"><span class="nav-number">2.3.</span> <span class="nav-text">解压安装包，并配置安装目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译及安装"><span class="nav-number">2.4.</span> <span class="nav-text">编译及安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置环境变量"><span class="nav-number">2.5.</span> <span class="nav-text">配置环境变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Rabbit-MQ"><span class="nav-number">3.</span> <span class="nav-text">安装 Rabbit MQ</span></a></li></ol></div>
             
 
           </div>
@@ -735,7 +733,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">17.8k</span>
+    <span title="Site words total count">17.7k</span>
   
 </div>
 
