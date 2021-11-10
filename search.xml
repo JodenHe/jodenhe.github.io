@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[AMQP 0-9-1 常用命令]]></title>
+    <url>%2F2021%2F11%2F11%2Fother%2Frabbit-mq-amqp%2F</url>
+    <content type="text"><![CDATA[AMQP 0-9-1 中常用的命令与 RabbitMQ 客户端中方法的映射关系 名称 是否包含内容体 对应客户端的方法 简要描述 Connection.Start 否 factory.newConnection 建立连接相关 Connection.Start-OK 否 factory.newConnection 建立连接相关 Connection.Tune 否 factory.newConnection 建立连接相关 Connection.Tune-OK 否 factory.newConnection 建立连接相关 Connection.Open 否 factory.newConnection 建立连接相关 Connection.Open-OK 否 factory.newConnection 建立连接相关 Connection.Close 否 connection.close 关闭连接 Connection.Close-OK 否 connection.close 关闭连接 Channel.Open 否 connection.openChannel 开启信道 Channel.Open-OK 否 connection.openChannel 开启信道 Channel.Close 否 channel.close 关闭信道 Channel.Close-OK 否 channel.close 关闭信道 Exchange.Declare 否 channel.exchangeDeclare 声明交换器 Exchange.Declare-OK 否 channel.exchangeDeclare 声明交换器 Exchange.Delete 否 channel.exchangeDelete 删除交换器 Exchange.Delete-OK 否 channel.exchangeDelete 删除交换器 Exchange.Bind 否 channel.exchangeBind 交换器与交换器绑定 Exchange.Bind-OK 否 channel.exchangeBind 交换器与交换器绑定 Exchange.Unbind 否 channel.exchangeUnbind 交换器与交换器解绑 Exchange.Unbind-OK 否 channel.exchangeUnbind 交换器与交换器解绑 Queue.Declare 否 channel.queueDeclare 声明队列 Queue.Declare-OK 否 channel.queueDeclare 声明队列 Queue.Bind 否 channel.queueBind 队列与交换器绑定 Queue.Bind-OK 否 channel.queueBind 队列与交换器绑定 Queue.Purge 否 channel.queuePurge 清除队列中的内容 Queue.Purge-OK 否 channel.queuePurge 清除队列中的内容 Queue.Delete 否 channel.queueDelete 删除队列 Queue.Delete-OK 否 channel.queueDelete 删除队列 Queue.Unbind 否 channel.queueUnbind 队列与交换器解绑 Queue.Unbind-OK 否 channel.queueUnbind 队列与交换器解绑 Basic.Qos 否 channel.basicQos 设置未被确认消费的个数 Basic.Qos-OK 否 channel.basicQos 设置未被确认消费的个数 Basic.Consume 否 channel.basicConsume 消费消息（推模式） Basic.Consume-OK 否 channel.basicConsume 消费消息（推模式） Basic.Cancel 否 channel.basicCancel 取消 Basic.Cancel-OK 否 channel.basicCancel 取消 Basic.Publish 是 channel.basicPublish 发送消息 Basic.Return 是 无 未能成功路由的消息返回 Basic.Deliver 是 无 Broker 推送消息返回 Basic.Get 否 channel.basicGet 消费消息（拉模式） Basic.Get-OK 是 channel.basicGet 消费消息（拉模式） Basic.Ack 否 channel.basicAck 确认 Basic.Reject 否 channel.basicReject 拒绝（单条拒绝） Basic.Recover 否 channel.basicRecover 请求Broker重新发送未被确认的消息 Basic.Recover-OK 否 channel.basicRecover 请求Broker重新发送未被确认的消息 Basic.Nack 否 channel.basicNack 拒绝（可批量拒绝） Tx.Select 否 channel.txSelect 开启事务 Tx.Select-OK 否 channel.txSelect 开启事务 Tx.Commit 否 channel.txCommit 事务提交 Tx.Commit-OK 否 channel.txCommit 事务提交 Tx.Rollback 否 channel.txRollback 事务回滚 Tx.Rollback-OK 否 channel.txRollback 事务回滚 Confirm.Select 否 channel.confirmSelect 开启发送端确认模式 Confirm.Select-OK 否 channel.confirmSelect 开启发送端确认模式]]></content>
+      <categories>
+        <category>RabbitMQ</category>
+      </categories>
+      <tags>
+        <tag>RabbitMQ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Rabbit MQ 安装]]></title>
     <url>%2F2021%2F10%2F09%2Fother%2Frabbit-mq-install%2F</url>
     <content type="text"><![CDATA[前言Rabbit MQ 是由 Erlang 语言编写的，也正因如此，在安装 Rabbit MQ 之前需要安装 Erlang 。建议采用较新版的 Erlang，这样可以获得较多更新和改进，可以到官网 (https://www.erlang.org/downloads) 下载 安装 Erlang安装前置依赖 在安装 erlang 之前先安装下依赖文件(这一步不要忘掉了， 不然后面./configure的时候要报错) 1[joden@localhost workspace]$ sudo yum install gcc glibc-devel make ncurses-devel openssl-devel xmlto 下载源码包进入 Erlang 下载网址，下载源码包 解压安装包，并配置安装目录这里我们安装到 /opt/erlang 目录下: 1234[joden@localhost workspace]$ tar -zxvf otp_src_24.1.tar.gz[joden@localhost workspace]$ cd otp_src_24.1[joden@localhost otp_src_24.1]$ ./configure --prefix=/opt/erlang[joden@localhost otp_src_24.1]$ 编译及安装12[joden@localhost otp_src_24.1]$ make[joden@localhost otp_src_24.1]$ sudo make install 如果在安装的过程中出现类似”No xxx found” 的提示，可根据提示信息安装相应的包，然后重新执行，直到提示安装完毕为止。 配置环境变量修改 /etc/profile 配置文件，添加下面的环境变量: 12export ERLANG_HOME=/opt/erlangexport PATH=$PATH:$ERLANG_HOME/bin 最后执行 source /etc/profile 命令让配置文件生效: 12[joden@localhost otp_src_24.1]$ sudo vim /etc/profile[joden@localhost otp_src_24.1]$ source /etc/profile 可以输入 erl 命令来验证 Erlang 是否安装成功，如果出现类似以下的提示即表示安装成功: 12345[joden@localhost otp_src_24.1]$ erlErlang/OTP 24 [erts-12.1] [source] [64-bit] [smp:3:3] [ds:3:3:10] [async-threads:1]Eshell V12.1 (abort with ^G)1&gt; 安装 Rabbit MQRabbit MQ 的安装直接将下载的安装包解压到相应的目录下即可，官网下载地址: https://www.rabbitmq.com/install-generic-unix.html 这里选择将 Rabbit MQ 安装到与 Erlang 同一个目录 (/opt) 下面: 1234[joden@localhost workspace]$ tar -xvf rabbitmq-server-generic-unix-3.9.7.tar.xz[joden@localhost workspace]$ sudo mv rabbitmq_server-3.9.7/ /opt/[joden@localhost workspace]$ cd /opt/[joden@localhost opt]$ sudo mv rabbitmq_server-3.9.7/ rabbitmq 同样修改/etc/profile 文件， 添加下面的环境变量: 12export RABBITMQ_HOME=/opt/rabbitmqexport PATH=$PATH:$RABBITMQ_HOME/sbin 执行 source /etc/profile 命令让配置文件生效。 验证是否安装成功 12[joden@localhost opt]$ rabbitmqctl version3.9.7]]></content>
@@ -8,6 +19,7 @@
         <category>software</category>
       </categories>
       <tags>
+        <tag>RabbitMQ</tag>
         <tag>software</tag>
       </tags>
   </entry>
