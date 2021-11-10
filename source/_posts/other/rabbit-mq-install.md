@@ -4,6 +4,7 @@ date: 2021-10-09 14:37:32
 author: Joden_He
 tags:
   - software
+  - RabbitMQ
 categories: 
   - software
 description: "记录 centos7 下安装 Rabbit MQ"
