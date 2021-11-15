@@ -6,7 +6,7 @@ tags:
   - software
   - RabbitMQ
 categories: 
-  - software
+  - RabbitMQ
 description: "记录 centos7 下安装 Rabbit MQ"
 ---
 
