@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-11-10T16:41:32.790Z</updated>
+  <updated>2021-11-15T17:16:36.094Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux 操作系统部分内核参数配置</title>
+    <link href="http://yoursite.com/2021/11/16/linux/linux-sysctl-config/"/>
+    <id>http://yoursite.com/2021/11/16/linux/linux-sysctl-config/</id>
+    <published>2021-11-15T17:00:32.000Z</published>
+    <updated>2021-11-15T17:16:36.094Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一些可配置的内核选项"><a href="#一些可配置的内核选项" class="headerlink" title="一些可配置的内核选项"></a>一些可配置的内核选项</h2><p>## </p><table><thead><tr><th>参数项</th><th>描述</th></tr></thead><tbody><tr><td>fs.file-max</td><td>内核分配的最大文件句柄数。极限值和当前值可以通过 <code>/proc/sys/file/nr</code> 来查看。<br>例如：<br>[joden@localhost ~]$ cat /proc/sys/fs/file-nr<br>1280    0       585816</td></tr><tr><td>net.ipv4.ip_local_port_range</td><td>本地 IP 端口范围，定义为一对值。该范围必须为并发连接提供足够的条目</td></tr><tr><td>net.ipv4.tcp_tw_reuse</td><td>当启用时，允许内核重用 TIME_WAIT 状态的套接字。当用在 NAT 时，此选项是很危险的</td></tr><tr><td>net.ipv4.tcp_fin_timeout</td><td>降低此值到 5~10 可减少连接关闭的时间，之后会停留在 TIME_WAIT 状态，建议用在有大量并发连接的场景</td></tr><tr><td>net.core.somaxconn</td><td>监听队列的大小（同一时间建立过程中有多少个连接）。默认为128，增大到 4096 或更高，可以支持入站连接的爆发，如 clients 集体重连</td></tr><tr><td>net.ipv4.tcp_max_syn_backlog</td><td>尚未收到连接客户端确认的连接请求的最大数量。默认为128，最大值为65535。优化吞吐量时，4096 和 8192 是推荐的起始值</td></tr><tr><td>net.ipv4.tcp_keepalive_*</td><td>net.ipv4.tcp_keepalive_time, net.ipv4.tcp_keepalive_intvl 和 net.ipv4.tcp_keepalive_probes 用于配置 TCP 存活时间</td></tr><tr><td>net.ipv4.conf.default.rp_filter</td><td>启用反向地址过滤。如果系统不关心 IP 地址欺骗，那么就禁用它</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      在 /etc/sysctl.conf 文件(Linux 操作系统)中配置的部分内核参数
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>AMQP 0-9-1 常用命令</title>
@@ -43,7 +65,7 @@
     <link href="http://yoursite.com/2021/10/09/other/rabbit-mq-install/"/>
     <id>http://yoursite.com/2021/10/09/other/rabbit-mq-install/</id>
     <published>2021-10-09T06:37:32.000Z</published>
-    <updated>2021-11-10T16:42:03.396Z</updated>
+    <updated>2021-11-15T16:57:25.723Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Rabbit MQ 是由 Erlang 语言编写的，也正因如此，在安装 Rabbit MQ 之前需要安装 Erlang 。建议采用较新版的 Erlang，这样可以获得较多更新和改进，可以到官网 (<a href="https://www.erlang.org/downloads" target="_blank" rel="noopener">https://www.erlang.org/downloads</a>) 下载</p><h2 id="安装-Erlang"><a href="#安装-Erlang" class="headerlink" title="安装 Erlang"></a>安装 Erlang</h2><h3 id="安装前置依赖"><a href="#安装前置依赖" class="headerlink" title="安装前置依赖"></a>安装前置依赖</h3><blockquote><p>在安装 erlang 之前先安装下依赖文件(这一步不要忘掉了， 不然后面./configure的时候要报错)</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[joden@localhost workspace]$ sudo yum install gcc glibc-devel make ncurses-devel openssl-devel xmlto</span><br></pre></td></tr></table></figure><h3 id="下载源码包"><a href="#下载源码包" class="headerlink" title="下载源码包"></a>下载源码包</h3><p>进入 Erlang 下载网址，下载源码包</p><p><img src="/images/other/20211009144350.png" alt="Erlang 源码包下载"></p><h3 id="解压安装包，并配置安装目录"><a href="#解压安装包，并配置安装目录" class="headerlink" title="解压安装包，并配置安装目录"></a>解压安装包，并配置安装目录</h3><p>这里我们安装到 <code>/opt/erlang</code> 目录下:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[joden@localhost workspace]$ tar -zxvf otp_src_24.1.tar.gz</span><br><span class="line">[joden@localhost workspace]$ cd otp_src_24.1</span><br><span class="line">[joden@localhost otp_src_24.1]$ ./configure --prefix=/opt/erlang</span><br><span class="line">[joden@localhost otp_src_24.1]$</span><br></pre></td></tr></table></figure><h3 id="编译及安装"><a href="#编译及安装" class="headerlink" title="编译及安装"></a>编译及安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[joden@localhost otp_src_24.1]$ make</span><br><span class="line">[joden@localhost otp_src_24.1]$ sudo make install</span><br></pre></td></tr></table></figure><blockquote><p>如果在安装的过程中出现类似”No xxx found” 的提示，可根据提示信息安装相应的包，然后重新执行，直到提示安装完毕为止。</p></blockquote><h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><p>修改 <code>/etc/profile</code> 配置文件，添加下面的环境变量:</p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export ERLANG_HOME=/opt/erlang</span><br><span class="line">export PATH=<span class="formula">$PATH:$</span>ERLANG_HOME/bin</span><br></pre></td></tr></table></figure><p>最后执行 <code>source /etc/profile</code> 命令让配置文件生效:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[joden@localhost otp_src_24.1]$ sudo vim /etc/profile</span><br><span class="line">[joden@localhost otp_src_24.1]$ source /etc/profile</span><br></pre></td></tr></table></figure><p>可以输入 <code>erl</code> 命令来验证 Erlang 是否安装成功，如果出现类似以下的提示即表示安装成功:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[joden@localhost otp_src_24.1]$ erl</span><br><span class="line">Erlang/OTP 24 [erts-12.1] [source] [64-bit] [smp:3:3] [ds:3:3:10] [async-threads:1]</span><br><span class="line"></span><br><span class="line">Eshell V12.1  (abort with ^G)</span><br><span class="line"><span class="meta">1&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure><h2 id="安装-Rabbit-MQ"><a href="#安装-Rabbit-MQ" class="headerlink" title="安装 Rabbit MQ"></a>安装 Rabbit MQ</h2><p>Rabbit MQ 的安装直接将下载的安装包解压到相应的目录下即可，官网下载地址: <a href="https://www.rabbitmq.com/install-generic-unix.html" target="_blank" rel="noopener">https://www.rabbitmq.com/install-generic-unix.html</a></p><p><img src="/images/other/20211009152620.png" alt="rabbit mq 下载"></p><p>这里选择将 Rabbit MQ 安装到与 Erlang 同一个目录 (/opt) 下面:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[joden@localhost workspace]$ tar -xvf rabbitmq-server-generic-unix-3.9.7.tar.xz</span><br><span class="line">[joden@localhost workspace]$ sudo mv rabbitmq_server-3.9.7/ /opt/</span><br><span class="line">[joden@localhost workspace]$ cd /opt/</span><br><span class="line">[joden@localhost opt]$ sudo mv rabbitmq_server-3.9.7/ rabbitmq</span><br></pre></td></tr></table></figure><p>同样修改/etc/profile 文件， 添加下面的环境变量:</p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export RABBITMQ_HOME=/opt/rabbitmq</span><br><span class="line">export PATH=<span class="formula">$PATH:$</span>RABBITMQ_HOME/sbin</span><br></pre></td></tr></table></figure><p>执行 <code>source /etc/profile</code> 命令让配置文件生效。</p><p>验证是否安装成功</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[joden@localhost opt]$ rabbitmqctl version</span><br><span class="line">3.9.7</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -53,7 +75,7 @@
     
     </summary>
     
-      <category term="software" scheme="http://yoursite.com/categories/software/"/>
+      <category term="RabbitMQ" scheme="http://yoursite.com/categories/RabbitMQ/"/>
     
     
       <category term="RabbitMQ" scheme="http://yoursite.com/tags/RabbitMQ/"/>
@@ -489,30 +511,6 @@
       <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
       <category term="Spring" scheme="http://yoursite.com/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>oracle cloud 如何获取图片 url</title>
-    <link href="http://yoursite.com/2019/02/20/oracle-cloud/how-to-get-image-url/"/>
-    <id>http://yoursite.com/2019/02/20/oracle-cloud/how-to-get-image-url/</id>
-    <published>2019-02-20T05:00:00.000Z</published>
-    <updated>2021-10-09T10:00:57.859Z</updated>
-    
-    <content type="html"><![CDATA[<p>以获取物料图片 <code>url</code> 作为例子</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">SELECT</span> (<span class="keyword">decode</span>(datatype_code,</span><br><span class="line">                <span class="string">'FILE'</span>,</span><br><span class="line">                (:p_host || <span class="string">'/cs/idcplg?IdcService=GET_FILE&amp;dID='</span>) || dm_version_number,</span><br><span class="line">                <span class="string">'WEB_PAGE'</span>,</span><br><span class="line">                <span class="keyword">url</span>)) <span class="keyword">AS</span> image</span><br><span class="line"> <span class="keyword">FROM</span> fnd_attached_documents d,</span><br><span class="line"> fnd_documents_vl       dv</span><br><span class="line"> <span class="keyword">WHERE</span> d.document_id = d.document_id</span><br><span class="line"> <span class="keyword">AND</span> d.entity_name = <span class="string">'ITEM_ENTITY'</span></span><br><span class="line"> <span class="keyword">AND</span> d.pk1_value = to_char(esi.organization_id)</span><br><span class="line"> <span class="keyword">AND</span> d.pk2_value = to_char(esi.inventory_item_id)</span><br><span class="line"> <span class="keyword">AND</span> <span class="keyword">rownum</span> = <span class="number">1</span>) <span class="keyword">AS</span> item_photo</span><br></pre></td></tr></table></figure><blockquote><p> 其中 <code>p_host</code> 为 <code>cloud</code> 的主域名</p></blockquote><p>其他类型的图片 <code>url</code> 可以通过变换 <code>d.entity_name = &#39;ITEM_ENTITY&#39;</code> 进行查找</p>]]></content>
-    
-    <summary type="html">
-    
-      oracle cloud 中通过附件来管理图片信息，其中图片信息可以是外链 url, 也可以是上传图片信息，cloud 生成链接信息。
-    
-    </summary>
-    
-      <category term="Oracle Cloud" scheme="http://yoursite.com/categories/Oracle-Cloud/"/>
-    
-    
-      <category term="Oracle Cloud" scheme="http://yoursite.com/tags/Oracle-Cloud/"/>
-    
-      <category term="attachment" scheme="http://yoursite.com/tags/attachment/"/>
     
   </entry>
   
