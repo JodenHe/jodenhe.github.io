@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Linux," />
+  <meta name="keywords" content="RabbitMQ," />
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="在 /etc/sysctl.conf 文件(Linux 操作系统)中配置的部分内核参数">
-<meta name="keywords" content="Linux">
+<meta name="description" content="Rabbit MQ 集群搭建">
+<meta name="keywords" content="RabbitMQ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux 操作系统部分内核参数配置">
-<meta property="og:url" content="http://yoursite.com/2021/11/16/linux/linux-sysctl-config/index.html">
+<meta property="og:title" content="Rabbit MQ 集群搭建">
+<meta property="og:url" content="http://yoursite.com/2021/11/18/other/rabbit-mq-cluster/index.html">
 <meta property="og:site_name" content="麻瓜吃菜鸟">
-<meta property="og:description" content="在 /etc/sysctl.conf 文件(Linux 操作系统)中配置的部分内核参数">
+<meta property="og:description" content="Rabbit MQ 集群搭建">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-11-15T17:21:16.952Z">
+<meta property="og:updated_time" content="2021-11-17T17:57:57.935Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux 操作系统部分内核参数配置">
-<meta name="twitter:description" content="在 /etc/sysctl.conf 文件(Linux 操作系统)中配置的部分内核参数">
+<meta name="twitter:title" content="Rabbit MQ 集群搭建">
+<meta name="twitter:description" content="Rabbit MQ 集群搭建">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2021/11/16/linux/linux-sysctl-config/"/>
+  <link rel="canonical" href="http://yoursite.com/2021/11/18/other/rabbit-mq-cluster/"/>
 
 
 
 
 
-  <title>linux 操作系统部分内核参数配置 | 麻瓜吃菜鸟</title>
+  <title>Rabbit MQ 集群搭建 | 麻瓜吃菜鸟</title>
   
 
 
@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/16/linux/linux-sysctl-config/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/18/other/rabbit-mq-cluster/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Joden He">
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">linux 操作系统部分内核参数配置</h1>
+          <h1 class="post-title" itemprop="name headline">Rabbit MQ 集群搭建</h1>
         
 
         <div class="post-meta">
@@ -335,8 +335,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-16T01:00:32+08:00">
-                2021-11-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-18T00:48:32+08:00">
+                2021-11-18
               </time>
             
 
@@ -358,8 +358,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/RabbitMQ/" itemprop="url" rel="index">
+                    <span itemprop="name">RabbitMQ</span>
                   </a>
                 </span>
 
@@ -375,7 +375,7 @@
 
           
           
-             <span id="/2021/11/16/linux/linux-sysctl-config/" class="leancloud_visitors" data-flag-title="linux 操作系统部分内核参数配置">
+             <span id="/2021/11/18/other/rabbit-mq-cluster/" class="leancloud_visitors" data-flag-title="Rabbit MQ 集群搭建">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  324
+                  1,848
                 </span>
               
 
@@ -416,7 +416,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  10
                 </span>
               
             </div>
@@ -424,7 +424,7 @@
 
           
               <div class="post-description">
-                  在 /etc/sysctl.conf 文件(Linux 操作系统)中配置的部分内核参数
+                  Rabbit MQ 集群搭建
               </div>
           
 
@@ -441,48 +441,57 @@
       
 
       
-        <h2 id="一些可配置的内核选项"><a href="#一些可配置的内核选项" class="headerlink" title="一些可配置的内核选项"></a>一些可配置的内核选项</h2><table>
-<thead>
-<tr>
-<th>参数项</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>fs.file-max</td>
-<td>内核分配的最大文件句柄数。极限值和当前值可以通过 <code>/proc/sys/file/nr</code> 来查看。<br>例如：<br>[joden@localhost ~]$ cat /proc/sys/fs/file-nr<br>1280    0       585816</td>
-</tr>
-<tr>
-<td>net.ipv4.ip_local_port_range</td>
-<td>本地 IP 端口范围，定义为一对值。该范围必须为并发连接提供足够的条目</td>
-</tr>
-<tr>
-<td>net.ipv4.tcp_tw_reuse</td>
-<td>当启用时，允许内核重用 TIME_WAIT 状态的套接字。当用在 NAT 时，此选项是很危险的</td>
-</tr>
-<tr>
-<td>net.ipv4.tcp_fin_timeout</td>
-<td>降低此值到 5~10 可减少连接关闭的时间，之后会停留在 TIME_WAIT 状态，建议用在有大量并发连接的场景</td>
-</tr>
-<tr>
-<td>net.core.somaxconn</td>
-<td>监听队列的大小（同一时间建立过程中有多少个连接）。默认为128，增大到 4096 或更高，可以支持入站连接的爆发，如 clients 集体重连</td>
-</tr>
-<tr>
-<td>net.ipv4.tcp_max_syn_backlog</td>
-<td>尚未收到连接客户端确认的连接请求的最大数量。默认为128，最大值为65535。优化吞吐量时，4096 和 8192 是推荐的起始值</td>
-</tr>
-<tr>
-<td>net.ipv4.tcp_keepalive_*</td>
-<td>net.ipv4.tcp_keepalive_time, net.ipv4.tcp_keepalive_intvl 和 net.ipv4.tcp_keepalive_probes 用于配置 TCP 存活时间</td>
-</tr>
-<tr>
-<td>net.ipv4.conf.default.rp_filter</td>
-<td>启用反向地址过滤。如果系统不关心 IP 地址欺骗，那么就禁用它</td>
-</tr>
-</tbody>
-</table>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>rabbitMQ 集群对延迟非常敏感，应当只在本地<strong>局域网</strong>内使用。在广域网中不应该使用集群，而应该使用 Federation 或者 Shovel 来代替。</p>
+</blockquote>
+<p>假设有三个物理机</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.168.56.201 node1</span><br><span class="line">192.168.56.202 node2</span><br><span class="line">192.168.56.203 node3</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>每个节点上都需要安装 rabbitMQ，这里不再赘述如何安装，请参考：<a href="/2021/10/09/other/rabbit-mq-install/">rabbitMQ 安装</a></p>
+</blockquote>
+<h2 id="节点互相识别"><a href="#节点互相识别" class="headerlink" title="节点互相识别"></a>节点互相识别</h2><p>在每个节点服务器上配置 ip 地址与节点名称的映射信息，编辑 <code>/etc/hosts</code> 文件，添加以下内容</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.168.56.201 node1</span><br><span class="line">192.168.56.202 node2</span><br><span class="line">192.168.56.203 node3</span><br></pre></td></tr></table></figure>
+<h2 id="设置密钥令牌"><a href="#设置密钥令牌" class="headerlink" title="设置密钥令牌"></a>设置密钥令牌</h2><p>编辑 rabbitMQ 的 cookie 文件，确保每个节点的 cookie 文件使用的是同一个值。可以取 node1 节点的 cookie 值，然后复制到 node2 和 node3 节点中。cookie 文件默认路径为 <code>/var/lib/rabbitmq/.erlang.cookie</code> 或者 <code>$HOME/.erlang.cookie</code></p>
+<p>cookie 相当于密钥令牌，集群中的 rabbitMQ 节点需要通过交换密钥令牌以获得相互认证。如果节点的密钥令牌不一致，在配置节点时会报以下错误。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">[joden@node3 ~]$ rabbitmqctl join_cluster rabbit@node1</span><br><span class="line">Clustering node rabbit@node3 with rabbit@node1</span><br><span class="line">Error: unable to perform an operation on node <span class="string">'rabbit@node1'</span>. Please see diagnostics information and suggestions below.</span><br><span class="line"></span><br><span class="line">Most common reasons <span class="keyword">for</span> this are:</span><br><span class="line"></span><br><span class="line"> * Target node is unreachable (e.g. due to hostname resolution, TCP connection or firewall issues)</span><br><span class="line"> * CLI tool fails to authenticate with the server (e.g. due to CLI tool<span class="string">'s Erlang cookie not matching that of the server)</span></span><br><span class="line"><span class="string"> * Target node is not running</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">In addition to the diagnostics info below:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"> * See the CLI, clustering and networking guides on https://rabbitmq.com/documentation.html to learn more</span></span><br><span class="line"><span class="string"> * Consult server logs on node rabbit@node1</span></span><br><span class="line"><span class="string"> * If target node is configured to use long node names, don'</span>t forget to use --longnames with CLI tools</span><br><span class="line"></span><br><span class="line">DIAGNOSTICS</span><br><span class="line">===========</span><br><span class="line"></span><br><span class="line">attempted to contact: [rabbit@node1]</span><br><span class="line"></span><br><span class="line">rabbit@node1:</span><br><span class="line">  * connected to epmd (port 4369) on node1</span><br><span class="line">  * epmd reports node <span class="string">'rabbit'</span> uses port 25672 <span class="keyword">for</span> inter-node and CLI tool traffic</span><br><span class="line">  * TCP connection succeeded but Erlang distribution failed</span><br><span class="line">  * suggestion: check <span class="keyword">if</span> the Erlang cookie identical <span class="keyword">for</span> all server nodes and CLI tools</span><br><span class="line">  * suggestion: check <span class="keyword">if</span> all server nodes and CLI tools use consistent hostnames when addressing each other</span><br><span class="line">  * suggestion: check <span class="keyword">if</span> inter-node connections may be configured to use TLS. If so, all nodes and CLI tools must <span class="keyword">do</span> that</span><br><span class="line">   * suggestion: see the CLI, clustering and networking guides on https://rabbitmq.com/documentation.html to learn more</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Current node details:</span><br><span class="line"> * node name: <span class="string">'rabbitmqcli-54-rabbit@node3'</span></span><br><span class="line"> * effective user<span class="string">'s home directory: /home/joden</span></span><br><span class="line"><span class="string"> * Erlang cookie hash: 7l9ElKhq8r9jSXhS6DMULA==</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[joden@node3 ~]$</span></span><br></pre></td></tr></table></figure>
+<h2 id="配置集群"><a href="#配置集群" class="headerlink" title="配置集群"></a>配置集群</h2><p>配置集群有三种方式：</p>
+<ol>
+<li>通过 <code>rabbitmqctl</code> 工具配置</li>
+<li>通过 <code>rabbitmq.config</code> 配置文件配置</li>
+<li>通过 <code>rabbitmq-autocluster</code> 插件配置</li>
+</ol>
+<p>这里只介绍 <code>rabbitmqctl</code> 工具配置，这是最常用的方式，其他两种方式在实际应有中很少使用。</p>
+<h3 id="启动三个节点的-RabbitMQ-服务"><a href="#启动三个节点的-RabbitMQ-服务" class="headerlink" title="启动三个节点的 RabbitMQ 服务"></a>启动三个节点的 RabbitMQ 服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[joden@node1 ~]$ rabbitmq-server -detached</span><br><span class="line">[joden@node2 ~]$ rabbitmq-server -detached</span><br><span class="line">[joden@node3 ~]$ rabbitmq-server -detached</span><br></pre></td></tr></table></figure>
+<p>这3个节点目前都是以独立的节点存在的单个集群，可以通过 <code>rabbitmqctl cluster_status</code> 命令查看各个节点状态。</p>
+<p>node1:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">[joden@node1 ~]$ rabbitmqctl cluster_status</span><br><span class="line">Cluster status of node rabbit@node1 ...</span><br><span class="line">Basics</span><br><span class="line"></span><br><span class="line">Cluster name: rabbit@node1</span><br><span class="line"></span><br><span class="line">Disk Nodes</span><br><span class="line"></span><br><span class="line">rabbit@node1</span><br><span class="line"></span><br><span class="line">Running Nodes</span><br><span class="line"></span><br><span class="line">rabbit@node1</span><br><span class="line"></span><br><span class="line">Versions</span><br><span class="line"></span><br><span class="line">rabbit@node1: RabbitMQ 3.9.8 on Erlang 24.1</span><br><span class="line"></span><br><span class="line">Maintenance status</span><br><span class="line"></span><br><span class="line">Node: rabbit@node1, status: not under maintenance</span><br><span class="line"></span><br><span class="line">Alarms</span><br><span class="line"></span><br><span class="line">(none)</span><br><span class="line"></span><br><span class="line">Network Partitions</span><br><span class="line"></span><br><span class="line">(none)</span><br><span class="line"></span><br><span class="line">Listeners</span><br><span class="line"></span><br><span class="line">Node: rabbit@node1, interface: [::], port: 15672, protocol: http, purpose: HTTP API</span><br><span class="line">Node: rabbit@node1, interface: [::], port: 25672, protocol: clustering, purpose: inter-node and CLI tool communication</span><br><span class="line">Node: rabbit@node1, interface: [::], port: 5672, protocol: amqp, purpose: AMQP 0-9-1 and AMQP 1.0</span><br><span class="line"></span><br><span class="line">Feature flags</span><br><span class="line"></span><br><span class="line">Flag: drop_unroutable_metric, state: enabled</span><br><span class="line">Flag: empty_basic_get_metric, state: enabled</span><br><span class="line">Flag: implicit_default_bindings, state: enabled</span><br><span class="line">Flag: maintenance_mode_status, state: enabled</span><br><span class="line">Flag: quorum_queue, state: enabled</span><br><span class="line">Flag: stream_queue, state: enabled</span><br><span class="line">Flag: user_limits, state: enabled</span><br><span class="line">Flag: virtual_host_metadata, state: enabled</span><br><span class="line">[joden@node1 ~]$</span><br></pre></td></tr></table></figure>
+<p>node2:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">[joden@node2 ~]$ rabbitmqctl cluster_status</span><br><span class="line">Cluster status of node rabbit@node2 ...</span><br><span class="line">Basics</span><br><span class="line"></span><br><span class="line">Cluster name: rabbit@node2</span><br><span class="line"></span><br><span class="line">Disk Nodes</span><br><span class="line"></span><br><span class="line">rabbit@node2</span><br><span class="line"></span><br><span class="line">Running Nodes</span><br><span class="line"></span><br><span class="line">rabbit@node2</span><br><span class="line"></span><br><span class="line">Versions</span><br><span class="line"></span><br><span class="line">rabbit@node2: RabbitMQ 3.9.8 on Erlang 24.1</span><br><span class="line"></span><br><span class="line">Maintenance status</span><br><span class="line"></span><br><span class="line">Node: rabbit@node2, status: not under maintenance</span><br><span class="line"></span><br><span class="line">Alarms</span><br><span class="line"></span><br><span class="line">(none)</span><br><span class="line"></span><br><span class="line">Network Partitions</span><br><span class="line"></span><br><span class="line">(none)</span><br><span class="line"></span><br><span class="line">Listeners</span><br><span class="line"></span><br><span class="line">Node: rabbit@node2, interface: [::], port: 15672, protocol: http, purpose: HTTP API</span><br><span class="line">Node: rabbit@node2, interface: [::], port: 25672, protocol: clustering, purpose: inter-node and CLI tool communication</span><br><span class="line">Node: rabbit@node2, interface: [::], port: 5672, protocol: amqp, purpose: AMQP 0-9-1 and AMQP 1.0</span><br><span class="line"></span><br><span class="line">Feature flags</span><br><span class="line"></span><br><span class="line">Flag: drop_unroutable_metric, state: enabled</span><br><span class="line">Flag: empty_basic_get_metric, state: enabled</span><br><span class="line">Flag: implicit_default_bindings, state: enabled</span><br><span class="line">Flag: maintenance_mode_status, state: enabled</span><br><span class="line">Flag: quorum_queue, state: enabled</span><br><span class="line">Flag: stream_queue, state: enabled</span><br><span class="line">Flag: user_limits, state: enabled</span><br><span class="line">Flag: virtual_host_metadata, state: enabled</span><br><span class="line">[joden@node2 ~]$</span><br></pre></td></tr></table></figure>
+<p>node3:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">[joden@node3 ~]$ rabbitmqctl cluster_status</span><br><span class="line">Cluster status of node rabbit@node3 ...</span><br><span class="line">Basics</span><br><span class="line"></span><br><span class="line">Cluster name: rabbit@node3</span><br><span class="line"></span><br><span class="line">Disk Nodes</span><br><span class="line"></span><br><span class="line">rabbit@node3</span><br><span class="line"></span><br><span class="line">Running Nodes</span><br><span class="line"></span><br><span class="line">rabbit@node3</span><br><span class="line"></span><br><span class="line">Versions</span><br><span class="line"></span><br><span class="line">rabbit@node3: RabbitMQ 3.9.8 on Erlang 24.1</span><br><span class="line"></span><br><span class="line">Maintenance status</span><br><span class="line"></span><br><span class="line">Node: rabbit@node3, status: not under maintenance</span><br><span class="line"></span><br><span class="line">Alarms</span><br><span class="line"></span><br><span class="line">(none)</span><br><span class="line"></span><br><span class="line">Network Partitions</span><br><span class="line"></span><br><span class="line">(none)</span><br><span class="line"></span><br><span class="line">Listeners</span><br><span class="line"></span><br><span class="line">Node: rabbit@node3, interface: [::], port: 15672, protocol: http, purpose: HTTP API</span><br><span class="line">Node: rabbit@node3, interface: [::], port: 25672, protocol: clustering, purpose: inter-node and CLI tool communication</span><br><span class="line">Node: rabbit@node3, interface: [::], port: 5672, protocol: amqp, purpose: AMQP 0-9-1 and AMQP 1.0</span><br><span class="line"></span><br><span class="line">Feature flags</span><br><span class="line"></span><br><span class="line">Flag: drop_unroutable_metric, state: enabled</span><br><span class="line">Flag: empty_basic_get_metric, state: enabled</span><br><span class="line">Flag: implicit_default_bindings, state: enabled</span><br><span class="line">Flag: maintenance_mode_status, state: enabled</span><br><span class="line">Flag: quorum_queue, state: enabled</span><br><span class="line">Flag: stream_queue, state: enabled</span><br><span class="line">Flag: user_limits, state: enabled</span><br><span class="line">Flag: virtual_host_metadata, state: enabled</span><br><span class="line">[joden@node3 ~]$</span><br></pre></td></tr></table></figure>
+<h3 id="组成集群"><a href="#组成集群" class="headerlink" title="组成集群"></a>组成集群</h3><blockquote>
+<p>以 node1 节点为基准，讲 node2 和 node3 节点加入到 node1 节点集群中。</p>
+</blockquote>
+<p>以 node2 为例，仅需要执行以下步骤即可</p>
+<ul>
+<li><p>停止</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[joden@node2 ~]$ rabbitmqctl stop_app</span><br><span class="line">Stopping rabbit application on node rabbit@node2 ...</span><br><span class="line">[joden@node2 ~]$</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[joden@node2 ~]$ rabbitmqctl reset</span><br><span class="line">Resetting node rabbit@node2 ...</span><br><span class="line">[joden@node2 ~]$</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加入 node1 节点集群</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[joden@node2 ~]$ rabbitmqctl join_cluster rabbit@node1</span><br><span class="line">Clustering node rabbit@node2 with rabbit@node1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[joden@node2 ~]$ rabbitmqctl start_app</span><br><span class="line">Starting node rabbit@node2 ...</span><br><span class="line">[joden@node2 ~]$</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这时候在 node1 或者 node2 执行 <code>rabbitmqctl cluster_status</code>，都可以看到以下输出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">[joden@node2 ~]$ rabbitmqctl cluster_status</span><br><span class="line">Cluster status of node rabbit@node2 ...</span><br><span class="line">Basics</span><br><span class="line"></span><br><span class="line">Cluster name: rabbit@node2</span><br><span class="line"></span><br><span class="line">Disk Nodes</span><br><span class="line"></span><br><span class="line">rabbit@node1</span><br><span class="line">rabbit@node2</span><br><span class="line"></span><br><span class="line">Running Nodes</span><br><span class="line"></span><br><span class="line">rabbit@node1</span><br><span class="line">rabbit@node2</span><br><span class="line"></span><br><span class="line">Versions</span><br><span class="line"></span><br><span class="line">rabbit@node1: RabbitMQ 3.9.8 on Erlang 24.1</span><br><span class="line">rabbit@node2: RabbitMQ 3.9.8 on Erlang 24.1</span><br><span class="line"></span><br><span class="line">Maintenance status</span><br><span class="line"></span><br><span class="line">Node: rabbit@node1, status: not under maintenance</span><br><span class="line">Node: rabbit@node2, status: not under maintenance</span><br><span class="line"></span><br><span class="line">Alarms</span><br><span class="line"></span><br><span class="line">(none)</span><br><span class="line"></span><br><span class="line">Network Partitions</span><br><span class="line"></span><br><span class="line">(none)</span><br><span class="line"></span><br><span class="line">Listeners</span><br><span class="line"></span><br><span class="line">Node: rabbit@node1, interface: [::], port: 15672, protocol: http, purpose: HTTP API</span><br><span class="line">Node: rabbit@node1, interface: [::], port: 25672, protocol: clustering, purpose: inter-node and CLI tool communication</span><br><span class="line">Node: rabbit@node1, interface: [::], port: 5672, protocol: amqp, purpose: AMQP 0-9-1 and AMQP 1.0</span><br><span class="line">Node: rabbit@node2, interface: [::], port: 25672, protocol: clustering, purpose: inter-node and CLI tool communication</span><br><span class="line">Node: rabbit@node2, interface: [::], port: 15672, protocol: http, purpose: HTTP API</span><br><span class="line">Node: rabbit@node2, interface: [::], port: 5672, protocol: amqp, purpose: AMQP 0-9-1 and AMQP 1.0</span><br><span class="line"></span><br><span class="line">Feature flags</span><br><span class="line"></span><br><span class="line">Flag: drop_unroutable_metric, state: enabled</span><br><span class="line">Flag: empty_basic_get_metric, state: enabled</span><br><span class="line">Flag: implicit_default_bindings, state: enabled</span><br><span class="line">Flag: maintenance_mode_status, state: enabled</span><br><span class="line">Flag: quorum_queue, state: enabled</span><br><span class="line">Flag: stream_queue, state: enabled</span><br><span class="line">Flag: user_limits, state: enabled</span><br><span class="line">Flag: virtual_host_metadata, state: enabled</span><br><span class="line">[joden@node2 ~]$</span><br></pre></td></tr></table></figure>
+<p>同样操作对 node3 执行即可。 </p>
+<h2 id="关闭节点"><a href="#关闭节点" class="headerlink" title="关闭节点"></a>关闭节点</h2><p>如果关闭了集群中所有节点，需要确保在启动的时候<strong>最后关闭的那个节点是第一个启动的</strong>。如果第一个启动的并不是最后关闭的节点，那么这个节点会等待最后那个节点启动，等待时间为30秒，如果没有等到，这个先启动的节点也会失败。</p>
+<p>如果最后一个关闭的节点由于某些异常无法启动，可以通过 <code>rabbitmqctl forget_cluster_node</code> 命令来将这个节点踢出当前集群。如果所有节点由于非正常因素关闭（比如断电），那么集群中的节点都会认为还有其他节点在它后面关闭。这时需要调用 <code>rabbitmqctl force_boot</code> 命令来启动一个节点，之后集群才能正常启动。</p>
 
       
     </div>
@@ -500,7 +509,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+            <a href="/tags/RabbitMQ/" rel="tag"><i class="fa fa-tag"></i> RabbitMQ</a>
           
         </div>
       
@@ -513,8 +522,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/11/11/other/rabbit-mq-amqp/" rel="next" title="AMQP 0-9-1 常用命令">
-                <i class="fa fa-chevron-left"></i> AMQP 0-9-1 常用命令
+              <a href="/2021/11/16/linux/linux-sysctl-config/" rel="next" title="linux 操作系统部分内核参数配置">
+                <i class="fa fa-chevron-left"></i> linux 操作系统部分内核参数配置
               </a>
             
           </div>
@@ -522,10 +531,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/11/18/other/rabbit-mq-cluster/" rel="prev" title="Rabbit MQ 集群搭建">
-                Rabbit MQ 集群搭建 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -714,7 +719,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一些可配置的内核选项"><span class="nav-number">1.</span> <span class="nav-text">一些可配置的内核选项</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#节点互相识别"><span class="nav-number">2.</span> <span class="nav-text">节点互相识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置密钥令牌"><span class="nav-number">3.</span> <span class="nav-text">设置密钥令牌</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置集群"><span class="nav-number">4.</span> <span class="nav-text">配置集群</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#启动三个节点的-RabbitMQ-服务"><span class="nav-number">4.1.</span> <span class="nav-text">启动三个节点的 RabbitMQ 服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组成集群"><span class="nav-number">4.2.</span> <span class="nav-text">组成集群</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭节点"><span class="nav-number">5.</span> <span class="nav-text">关闭节点</span></a></li></ol></div>
             
 
           </div>
