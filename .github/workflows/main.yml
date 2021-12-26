@@ -41,6 +41,7 @@ jobs:
       # 将编译后的博客文件推送到指定仓库
       run: |
         cd ./public && git init && git add .
+        git config --global init.defaultBranch "master"
         git config user.name "JodenHe"
         git config user.email "824923282@qq.com"
         git add .
