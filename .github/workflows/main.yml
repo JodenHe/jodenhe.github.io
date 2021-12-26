@@ -40,8 +40,8 @@ jobs:
         GITHUB_REPO: github.com/JodenHe/jodenhe.github.io
       # 将编译后的博客文件推送到指定仓库
       run: |
-        cd ./public && git init && git add .
         git config --global init.defaultBranch "master"
+        cd ./public && git init && git add .
         git config user.name "JodenHe"
         git config user.email "824923282@qq.com"
         git add .
