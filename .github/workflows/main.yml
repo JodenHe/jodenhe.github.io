@@ -44,7 +44,7 @@ jobs:
         cd ./public && git init && git add .
         git config user.name "JodenHe"
         git config user.email "824923282@qq.com"
-        git clone https://github.com/JodenHe/sindy.git
+        git clone https:///${{ secrets.ACCESS_TOKEN }}@github.com/JodenHe/sindy.git -b main
         rm -rf ./sindy/.git/
         git add .
         git commit -m "GitHub Actions Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
