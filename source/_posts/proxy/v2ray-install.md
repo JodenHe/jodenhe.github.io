@@ -135,66 +135,64 @@ description: "一键搭建 v2Ray 梯子"
 
 > 如果是 oracle 免费 vps 安装 BBR 重启会导致服务重连，可以执行以下步骤
 
-- 关闭防火墙
+#### 关闭防火墙
 
-  由于甲骨文云有控制台可以配置安全防火墙,加上修改了`SSH`端口,可以禁用防火墙,使用`iptables`来管理.
+由于甲骨文云有控制台可以配置安全防火墙,加上修改了`SSH`端口,可以禁用防火墙,使用`iptables`来管理.
+
+```bash
+systemctl stop firewalld
+systemctl disable firewalld
+```
+
+#### 修改主机名
+
+编辑修改`oci-hostname.conf`文件
+
+```bash
+vi /etc/oci-hostname.conf
+```
+
+将`PRESERVE_HOSTINFO=0`中的的值`0`修改为`1`
+
+```tex
+# This configuration file controls the hostname persistence behavior for Oracle Linux
+# compute instance on Oracle Cloud Infrastructure (formerly Baremetal Cloud Services)
+# Set PRESERVE_HOSTINFO to one of the following values
+#   0 -- default behavior to update hostname, /etc/hosts and /etc/resolv.conf to 
+#        reflect the hostname set during instance creation from the metadata service
+#   1 -- preserve user configured hostname across reboots; update /etc/hosts and 
+#           /etc/resolv.conf from the metadata service  
+#   2 -- preserve user configured hostname across instance reboots; no custom  
+#        changes to /etc/hosts and /etc/resolv.conf from the metadata service,
+#        but dhclient will still overwrite /etc/resolv.conf
+#   3 -- preserve hostname and /etc/hosts entries across instance reboots; 
+#        update /etc/resolv.conf from instance metadata service
+PRESERVE_HOSTINFO=0
+```
+
+#### 卸载相关程序
+
+- rpcbind
+
+  使用`netstat -ntlp`命令发现`rpcbind`监听了`111`端口,如担心安全可执行以下命令卸载禁用:
 
   ```bash
-  systemctl stop firewalld
-  systemctl disable firewalld
+  systemctl stop rpcbind
+  systemctl stop rpcbind.socket
+  systemctl disable rpcbind
+  systemctl disable rpcbind.socket 
   ```
 
-- 修改主机名
+- oracle-cloud-agent
 
-  编辑修改`oci-hostname.conf`文件
+  卸载甲骨文云官方后台监控程序
 
   ```bash
-  vi /etc/oci-hostname.conf
+  systemctl stop oracle-cloud-agent
+  systemctl disable oracle-cloud-agent
+  systemctl stop oracle-cloud-agent-updater
+  systemctl disable oracle-cloud-agent-updater
   ```
-
-  将`PRESERVE_HOSTINFO=0`中的的值`0`修改为`1`
-
-  ```tex
-  # This configuration file controls the hostname persistence behavior for Oracle Linux
-  # compute instance on Oracle Cloud Infrastructure (formerly Baremetal Cloud Services)
-  # Set PRESERVE_HOSTINFO to one of the following values
-  #   0 -- default behavior to update hostname, /etc/hosts and /etc/resolv.conf to 
-  #        reflect the hostname set during instance creation from the metadata service
-  #   1 -- preserve user configured hostname across reboots; update /etc/hosts and 
-  #           /etc/resolv.conf from the metadata service  
-  #   2 -- preserve user configured hostname across instance reboots; no custom  
-  #        changes to /etc/hosts and /etc/resolv.conf from the metadata service,
-  #        but dhclient will still overwrite /etc/resolv.conf
-  #   3 -- preserve hostname and /etc/hosts entries across instance reboots; 
-  #        update /etc/resolv.conf from instance metadata service
-  PRESERVE_HOSTINFO=0
-  ```
-
-- 卸载相关程序
-
-  - rpcbind
-
-    使用`netstat -ntlp`命令发现`rpcbind`监听了`111`端口,如担心安全可执行以下命令卸载禁用:
-
-    ```bash
-    systemctl stop rpcbind
-    systemctl stop rpcbind.socket
-    systemctl disable rpcbind
-    systemctl disable rpcbind.socket 
-    ```
-
-  - oracle-cloud-agent
-
-    卸载甲骨文云官方后台监控程序
-
-    ```bash
-    systemctl stop oracle-cloud-agent
-    systemctl disable oracle-cloud-agent
-    systemctl stop oracle-cloud-agent-updater
-    systemctl disable oracle-cloud-agent-updater
-    ```
-
-  
 
 ### 一键搭建
 
